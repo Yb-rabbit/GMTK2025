@@ -99,12 +99,6 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
 # 自定义部分
-# 补充操作系统文件
-.DS_Store
-Thumbs.db
-ehthumbs.db
-._*
-
 # IDE文件
 .vscode/
 .idea/
@@ -112,10 +106,3 @@ ehthumbs.db
 *.code-workspace
 *.swp
 *.swo
-
-# Unity版本文件
-/[Pp]rojectSettings/ProjectVersion.txt
-
-# 测试文件
-/[Aa]ssets/[Tt]est*
-/[Aa]ssets/[Pp]lay[Mm]ode[Tt]est*
