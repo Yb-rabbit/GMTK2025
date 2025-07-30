@@ -177,9 +177,7 @@ namespace QFramework
                 UnityWebRequest unityWebRequest = UnityWebRequest.Get(Application.streamingAssetsPath + "/" + fileName);
                 unityWebRequest.timeout = 30;
                 yield return unityWebRequest.SendWebRequest();
-                if (unityWebRequest.result == UnityWebRequest.Result.ConnectionError || 
-                    unityWebRequest.result == UnityWebRequest.Result.DataProcessingError || 
-                    unityWebRequest.result == UnityWebRequest.Result.ProtocolError)
+                if (unityWebRequest.result == UnityWebRequest.Result.ConnectionError)
                 {
                     Debug.Log("UnPack Error" + unityWebRequest.error);
                 }
@@ -339,9 +337,7 @@ namespace QFramework
             webRequest.timeout = 30;
             yield return webRequest.SendWebRequest();
 
-            if (webRequest.result == UnityWebRequest.Result.ConnectionError || 
-                webRequest.result == UnityWebRequest.Result.ProtocolError ||
-                webRequest.result == UnityWebRequest.Result.DataProcessingError)
+            if (webRequest.result == UnityWebRequest.Result.ConnectionError)
             {
                 Debug.Log("Download Error" + webRequest.error);
             }

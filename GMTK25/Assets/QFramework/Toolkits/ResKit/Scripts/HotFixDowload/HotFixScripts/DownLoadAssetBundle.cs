@@ -23,9 +23,7 @@ namespace QFramework
             yield return m_WebRequest.SendWebRequest();
             m_StartDownLoad = false;
 
-            if (m_WebRequest.result == UnityWebRequest.Result.ConnectionError ||
-                m_WebRequest.result == UnityWebRequest.Result.DataProcessingError ||
-                m_WebRequest.result == UnityWebRequest.Result.ProtocolError)
+            if (m_WebRequest.result == UnityWebRequest.Result.ConnectionError)
             {
                 Debug.LogError("Download Error" + m_WebRequest.error);
             }
