@@ -22,9 +22,9 @@ namespace Yumihoshi.MVC.Commands.Item
 {
     public class AddItemStackCmd : AbstractCommand
     {
-        private ItemCategory _category;
-        private string _name;
-        private int _amount;
+        private readonly int _amount;
+        private readonly ItemCategory _category;
+        private readonly string _name;
 
         public AddItemStackCmd(ItemCategory category, string name,
             int amount = 1)

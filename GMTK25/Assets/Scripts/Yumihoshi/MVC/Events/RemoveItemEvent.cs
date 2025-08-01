@@ -10,7 +10,7 @@ namespace Yumihoshi.MVC.Events
 {
     public class RemoveItemEvent
     {
-        public string name;
         public ItemCategory category;
+        public string name;
     }
 }

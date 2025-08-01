@@ -7,6 +7,7 @@
 // *****************************************************************************
 
 using UnityEngine;
+using Yumihoshi.Utility;
 
 namespace Yumihoshi
 {

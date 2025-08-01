@@ -6,11 +6,6 @@
 // @description:
 // *****************************************************************************
 
-using System.Collections.Generic;
-using QFramework;
-using UnityEngine;
-using Yumihoshi.Managers;
-using Yumihoshi.MVC.Events;
 using Yumihoshi.SO.Item.PassiveEquip;
 
 namespace Yumihoshi.MVC.Models.Item

@@ -6,7 +6,6 @@
 // @description:
 // *****************************************************************************
 
-using System;
 using System.Collections.Generic;
 using QFramework;
 using UnityEngine;
@@ -23,17 +22,19 @@ namespace Yumihoshi.Managers
     public class ItemManager : HoshiVerseFramework.Base.Singleton<ItemManager>,
         IController
     {
+        private ConsumableController _consumableController;
+
+        private PassiveEquipController _passiveEquipController;
+
         // SO
         private ResLoader _resLoader = ResLoader.Allocate();
-
-        public Dictionary<ItemCategory, ScriptableObject> ItemSoDict { get; } =
-            new();
+        private SpecialController _specialController;
 
         // Controller
         private WeaponController _weaponController;
-        private ConsumableController _consumableController;
-        private PassiveEquipController _passiveEquipController;
-        private SpecialController _specialController;
+
+        public Dictionary<ItemCategory, ScriptableObject> ItemSoDict { get; } =
+            new();
 
 
         protected override void Awake()
@@ -50,6 +51,11 @@ namespace Yumihoshi.Managers
             if (_resLoader == null) return;
             _resLoader.Recycle2Cache();
             _resLoader = null;
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return ItemApp.Interface;
         }
 
         /// <summary>
@@ -100,11 +106,6 @@ namespace Yumihoshi.Managers
             _passiveEquipController =
                 GetComponentInChildren<PassiveEquipController>();
             _specialController = GetComponentInChildren<SpecialController>();
-        }
-
-        public IArchitecture GetArchitecture()
-        {
-            return ItemApp.Interface;
         }
     }
 }

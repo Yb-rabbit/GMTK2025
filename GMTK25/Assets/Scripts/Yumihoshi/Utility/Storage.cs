@@ -1,23 +1,25 @@
 ﻿// *****************************************************************************
 // @author: Yumihoshi
 // @email: xiaoyuesun915@gmail.com
-// @creationDate: 2025/08/01 15:03
+// @creationDate: 2025/08/01 20:03
 // @version: 1.0
 // @description:
 // *****************************************************************************
 
 using QFramework;
-using Yumihoshi.MVC.Models.Item;
 
-namespace Yumihoshi.MVC.ViewControllers.Item
+namespace Yumihoshi.Utility
 {
-    public class SpecialController : BaseItemController
+    public class Storage : IUtility
     {
-        private SpecialModel _model;
-
-        private void Start()
+        public void Save<T>(string key, T value)
         {
-            _model = this.GetModel<SpecialModel>();
+            ES3.Save(key, value);
+        }
+
+        public T Load<T>(string key, T defaultValue = default)
+        {
+            return ES3.Load(key, defaultValue);
         }
     }
 }

@@ -8,7 +8,7 @@
 
 using UnityEngine.SceneManagement;
 
-namespace Yumihoshi
+namespace Yumihoshi.Utility
 {
     public static class CommonUtility
     {

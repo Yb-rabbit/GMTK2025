@@ -15,7 +15,7 @@ namespace Yumihoshi.MVC.Models.Item
     public class BaseItemModel<TData> : AbstractModel where TData : BaseItemData
     {
         public Dictionary<string, TData> Data { get; } = new();
-        
+
         protected override void OnInit()
         {
         }
