@@ -1,22 +1,15 @@
 ﻿// *****************************************************************************
 // @author: Yumihoshi
 // @email: xiaoyuesun915@gmail.com
-// @creationDate: 2025/08/01 12:42
+// @creationDate: 2025/08/01 15:03
 // @version: 1.0
 // @description:
 // *****************************************************************************
 
-using QFramework;
-using UnityEngine;
-using Yumihoshi.MVC.Apps;
-
 namespace Yumihoshi.MVC.ViewControllers.Item
 {
-    public class ItemController : MonoBehaviour, IController
+    public class PassiveEquipController : BaseItemController
     {
-        public IArchitecture GetArchitecture()
-        {
-            return ItemApp.Interface;
-        }
+        
     }
 }

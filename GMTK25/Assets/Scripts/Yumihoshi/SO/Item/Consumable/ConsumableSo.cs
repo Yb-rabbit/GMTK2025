@@ -16,7 +16,6 @@ namespace Yumihoshi.SO.Item.Consumable
         menuName = "物品/新建补给类配置列表", order = 2)]
     public class ConsumableSo : ScriptableObject
     {
-        [LabelText("补给类配置列表")]
-        public List<ConsumableData> ConsumableDataList;
+        [LabelText("补给类配置列表")] public List<ConsumableData> ConsumableDataList;
     }
 }

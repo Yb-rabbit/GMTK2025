@@ -14,7 +14,7 @@ namespace Yumihoshi
     public enum ItemCategory
     {
         None,
-        
+
         /// <summary>
         /// 手持物类（武器）
         /// </summary>

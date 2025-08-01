@@ -16,7 +16,6 @@ namespace Yumihoshi.SO.Item.Special
         menuName = "物品/新建特殊道具类配置列表", order = 3)]
     public class SpecialSo : ScriptableObject
     {
-        [LabelText("特殊道具类配置列表")]
-        public List<SpecialData> SpecialDataList;
+        [LabelText("特殊道具类配置列表")] public List<SpecialData> SpecialDataList;
     }
 }

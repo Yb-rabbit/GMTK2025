@@ -14,9 +14,13 @@ namespace Yumihoshi.SO.Item.Weapon
     [Serializable]
     public class WeaponData : BaseItemData
     {
+        [LabelText("伤害")] public float Damage;
+
+        [LabelText("攻速")] public float AttackSpeed;
+        [LabelText("攻击范围")] public float AttackRange;
+        [LabelText("出刀时防御值")] public float DefenseValue;
+
         // TODO: 手持物数据
         public override ItemCategory ItemType => ItemCategory.Weapon;
-        [LabelText("伤害")] public float Damage;
-        [LabelText("攻速")] public float AttackSpeed;
     }
 }

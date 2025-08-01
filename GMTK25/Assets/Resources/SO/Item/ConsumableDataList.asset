@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: ConsumableDataList
   m_EditorClassIdentifier: 
   ConsumableDataList:
-  - ItemName: 
-    ItemDesc: 
+  - itemName: "\u8840\u7EA2\u8272\u836F\u5242"
+    itemDesc: 
+    maxStackCount: 5
+  - itemName: "\u7EA2\u7EFF\u8272\u836F\u5242"
+    itemDesc: 
+    maxStackCount: 5

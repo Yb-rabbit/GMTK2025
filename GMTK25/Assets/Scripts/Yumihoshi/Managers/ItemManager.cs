@@ -6,10 +6,9 @@
 // @description:
 // *****************************************************************************
 
-using System;
-using System.Collections.Generic;
 using QFramework;
-using UnityEngine;
+using Yumihoshi.MVC.Apps;
+using Yumihoshi.MVC.ViewControllers.Item;
 using Yumihoshi.SO.Item.Consumable;
 using Yumihoshi.SO.Item.PassiveEquip;
 using Yumihoshi.SO.Item.Special;
@@ -19,12 +18,18 @@ namespace Yumihoshi.Managers
 {
     public class ItemManager : HoshiVerseFramework.Base.Singleton<ItemManager>
     {
+        // SO
+        private ResLoader _resLoader = ResLoader.Allocate();
         public WeaponSo WeaponDataSo { get; private set; }
         public PassiveEquipSo PassiveEquipDataSo { get; private set; }
         public ConsumableSo ConsumableDataSo { get; private set; }
         public SpecialSo SpecialDataSo { get; private set; }
-
-        private ResLoader _resLoader = ResLoader.Allocate();
+        
+        // Controller
+        private WeaponController _weaponController;
+        private PassiveEquipController _passiveEquipController;
+        private ConsumableController _consumableController;
+        private SpecialController _specialController;
 
         protected override void Awake()
         {

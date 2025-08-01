@@ -13,5 +13,12 @@ MonoBehaviour:
   m_Name: SpecialDataList
   m_EditorClassIdentifier: 
   SpecialDataList:
-  - ItemName: 
-    ItemDesc: 
+  - itemName: "\u679C\u76D8\u70B8\u5F39"
+    itemDesc: "\u5706\u6EDA\u6EDA\u7684\u677E\u679C\uFF0C\u6295\u63B7\u540E\u654C\u4EBA\u8E29\u4E0A\u53BB\u4F1A\u811A\u6ED1\u3002"
+    maxStackCount: 5
+  - itemName: "\u7A3B\u8349\u4EBA"
+    itemDesc: "\u653E\u7F6E\u5728\u5730\u9762\u53EF\u5438\u5F15\u654C\u4EBA\u6CE8\u610F\u529B\uFF0C\u88AB\u7834\u574F\u65F6\u5BF9\u654C\u4EBA\u9020\u6210\u50F5\u76F4\u3002"
+    maxStackCount: 5
+  - itemName: "\u85E4\u6761\u7F51"
+    itemDesc: "\u653E\u7F6E\u5728\u5730\u9762\u4F1A\u56F0\u4F4F\u8BE5\u7247\u533A\u57DF\u654C\u4EBA\uFF0C\u540C\u65F6\u9020\u6210\u4F24\u5BB3\u3002"
+    maxStackCount: 5

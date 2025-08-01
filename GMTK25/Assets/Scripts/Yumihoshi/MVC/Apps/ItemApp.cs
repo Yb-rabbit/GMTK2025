@@ -15,7 +15,10 @@ namespace Yumihoshi.MVC.Apps
     {
         protected override void Init()
         {
-            RegisterModel(new ItemModel());
+            RegisterModel(new ConsumableModel());
+            RegisterModel(new PassiveEquipModel());
+            RegisterModel(new SpecialModel());
+            RegisterModel(new WeaponModel());
         }
     }
 }

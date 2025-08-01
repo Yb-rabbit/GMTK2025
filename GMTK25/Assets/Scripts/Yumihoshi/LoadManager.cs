@@ -14,7 +14,7 @@ namespace Yumihoshi
     {
         private void Awake()
         {
-            CommonUtility.LoadManagerScene(this);
+            CommonUtility.LoadManagerScene();
         }
     }
 }
