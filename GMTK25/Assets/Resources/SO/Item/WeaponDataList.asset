@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbb899af8497422bae6dac248994394a, type: 3}
+  m_Name: WeaponDataList
+  m_EditorClassIdentifier: 
+  WeaponDataList:
+  - itemName: "\u68D2\u69CC"
+    itemDesc: "\u6728\u8D28\u949D\u5668\uFF0C\u8F7B\u4FBF\u7075\u5DE7\u3002"
+    maxStackCount: 1
+    Damage: 25
+    AttackSpeed: 1.3
+    AttackRange: 1
+    DefenseValue: 8
+  - itemName: "\u957F\u77DB"
+    itemDesc: "\u5C16\u9510\u4FEE\u957F\u7684\u7A7F\u523A\u6B66\u5668\uFF0C\u9002\u5408\u77ED\u8DDD\u79BB\u7CBE\u51C6\u653B\u51FB\u3002"
+    maxStackCount: 1
+    Damage: 30
+    AttackSpeed: 1
+    AttackRange: 1.1
+    DefenseValue: 10
+  - itemName: "\u94C1\u9524"
+    itemDesc: "\u6C89\u91CD\u7684\u949D\u5668\uFF0C\u4F46\u4F1A\u9020\u6210\u5927\u8303\u56F4\u4F24\u5BB3\u3002"
+    maxStackCount: 1
+    Damage: 45
+    AttackSpeed: 0.7
+    AttackRange: 1.8
+    DefenseValue: 15
+  - itemName: "\u9AA8\u65A7"
+    itemDesc: "\u7528\u91CE\u517D\u7684\u9AA8\u5934\u6253\u78E8\u800C\u6210\u7684\u65A7\u5B50\u3002"
+    maxStackCount: 1
+    Damage: 45
+    AttackSpeed: 0.8
+    AttackRange: 1.5
+    DefenseValue: 8
+  - itemName: "\u6728\u5251"
+    itemDesc: "\u4EE5\u575A\u97E7\u7684\u6A61\u6728\u6253\u9020\u800C\u6210\uFF0C\u950B\u5229\u81F4\u547D\uFF0C\u65B9\u4FBF\u63E1\u6301\u3002"
+    maxStackCount: 1
+    Damage: 0
+    AttackSpeed: 1
+    AttackRange: 0
+    DefenseValue: 0
+  - itemName: 
+    itemDesc: 
+    maxStackCount: 1
+    Damage: 0
+    AttackSpeed: 0
+    AttackRange: 0
+    DefenseValue: 0
+  - itemName: 
+    itemDesc: 
+    maxStackCount: 1
+    Damage: 0
+    AttackSpeed: 0
+    AttackRange: 0
+    DefenseValue: 0
