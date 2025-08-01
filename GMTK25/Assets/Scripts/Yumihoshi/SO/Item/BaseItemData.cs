@@ -13,7 +13,7 @@ namespace Yumihoshi.SO.Item
 {
     public class BaseItemData
     {
-        [LabelText("物品ID")] public uint itemId; // 物品ID
+        [LabelText("物品ID")] public string itemId; // 物品ID
         [LabelText("物品名称")] public string itemName; // 物品名称
         [LabelText("物品描述")] [TextArea] public string itemDesc; // 物品描述
         [LabelText("当前堆叠数量")] public int currentStackCount = 0; // 当前堆叠数量
