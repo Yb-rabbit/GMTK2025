@@ -54,7 +54,7 @@ namespace Yumihoshi.Managers
         public void LoadNextLevel()
         {
             CurrentLevelIndex = Mathf.Clamp(CurrentLevelIndex + 1, 0,
-                LevelTreasureList.ConfigList.Count);
+                LevelTreasureList.ConfigList.Count - 1);
             _curLevelConfig = LevelTreasureList.ConfigList[CurrentLevelIndex];
             _usedItemIds.Clear();
         }
