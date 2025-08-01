@@ -36,6 +36,25 @@ namespace Yumihoshi.MVC.Commands.Item
 
         protected override void OnExecute()
         {
+            switch (_category)
+            {
+                case ItemCategory.None:
+                    break;
+                case ItemCategory.Weapon:
+                    AddWeapon();
+                    break;
+                case ItemCategory.PassiveEquip:
+                    AddPassiveEquip();
+                    break;
+                case ItemCategory.Consumable:
+                    AddConsumable();
+                    break;
+                case ItemCategory.Special:
+                    AddSpecial();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private void Add<TData, TModel>(TData data, TModel model)
