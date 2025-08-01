@@ -20,15 +20,15 @@ public class camShark : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-                if (zhendong)
-                {
+         if (zhendong)
+         {
                     if(Jilu)
                     {
                         Jilu = false;
                         originalCameraPosition = transform.position;
                      }
-                    if (yici && cd > 0)
+            originalCameraPosition = new Vector3(transform.position.x,originalCameraPosition.y,transform.position.z);
+            if (yici && cd > 0)
                     {
                         transform.position = new Vector3(transform.position.x, transform.position.y + Speed* Time.deltaTime, transform.position.z);
                         cd -= Time.deltaTime;
@@ -42,20 +42,16 @@ public class camShark : MonoBehaviour
                             cd = tim;
                             yici = true;
                             zhendong = false;
-                        }
+                    transform.position = originalCameraPosition;
+                    Jilu = true;
+                }
                         else
                         {
 
                             transform.position = new Vector3(transform.position.x, transform.position.y - Speed/ 5 * Time.deltaTime, transform.position.z);
                         }
                     }
-                }
-                else
-                {
-                    // ª÷∏¥…„œÒª˙Œª÷√
-                    transform.position = originalCameraPosition;
-                     Jilu = true;
-                }
+         }
     }
     public void StartZhen()
     {
