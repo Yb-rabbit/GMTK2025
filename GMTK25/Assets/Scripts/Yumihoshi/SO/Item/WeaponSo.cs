@@ -12,7 +12,8 @@ using UnityEngine;
 
 namespace Yumihoshi.SO.Item
 {
-    [CreateAssetMenu(fileName = "NewWeaponDataList", menuName = "物品/新建手持物配置列表", order = 0)]
+    [CreateAssetMenu(fileName = "NewWeaponDataList", menuName = "物品/新建手持物配置列表",
+        order = 0)]
     public class WeaponSo : ScriptableObject
     {
         [LabelText("手持物配置列表")] public List<WeaponData> WeaponDataList;

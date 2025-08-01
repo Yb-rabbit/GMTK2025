@@ -17,17 +17,17 @@ namespace Yumihoshi
         /// 手持物类（武器）
         /// </summary>
         Weapon = 1,
-        
+
         /// <summary>
         /// 装配类
         /// </summary>
         PassiveEquip,
-        
+
         /// <summary>
         /// 补给类
         /// </summary>
         Consumable,
-        
+
         /// <summary>
         /// 特殊道具类
         /// </summary>

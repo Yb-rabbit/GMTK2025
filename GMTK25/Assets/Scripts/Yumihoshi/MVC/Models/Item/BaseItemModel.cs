@@ -14,7 +14,6 @@ namespace Yumihoshi.MVC.Models.Item
     {
         protected override void OnInit()
         {
-            
         }
     }
 }
