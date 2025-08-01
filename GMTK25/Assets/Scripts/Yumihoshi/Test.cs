@@ -7,6 +7,7 @@
 // *****************************************************************************
 
 using UnityEngine;
+using Yumihoshi.Managers;
 
 namespace Yumihoshi
 {
@@ -15,6 +16,7 @@ namespace Yumihoshi
         private void Start()
         {
             ES3.Save("TestInt", 12345);
+            Debug.Log(LevelManager.Instance.LevelTreasureList.ConfigList[0].Config[0]);
         }
     }
 }
