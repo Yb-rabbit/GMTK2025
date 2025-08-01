@@ -7,12 +7,15 @@
 // *****************************************************************************
 
 using System.Collections.Generic;
+using QFramework;
+using UnityEngine;
+using Yumihoshi.Managers;
+using Yumihoshi.MVC.Events;
 using Yumihoshi.SO.Item.PassiveEquip;
 
 namespace Yumihoshi.MVC.Models.Item
 {
-    public class PassiveEquipModel : BaseItemModel
+    public class PassiveEquipModel : BaseItemModel<PassiveEquipData>
     {
-        private List<PassiveEquipData> _data;
     }
 }

@@ -7,12 +7,15 @@
 // *****************************************************************************
 
 using System.Collections.Generic;
+using QFramework;
+using UnityEngine;
+using Yumihoshi.Managers;
+using Yumihoshi.MVC.Events;
 using Yumihoshi.SO.Item.Special;
 
 namespace Yumihoshi.MVC.Models.Item
 {
-    public class SpecialModel : BaseItemModel
+    public class SpecialModel : BaseItemModel<SpecialData>
     {
-        private List<SpecialData> _data;
     }
 }

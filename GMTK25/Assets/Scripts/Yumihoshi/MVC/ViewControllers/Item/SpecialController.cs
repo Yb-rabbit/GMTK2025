@@ -6,10 +6,19 @@
 // @description:
 // *****************************************************************************
 
+using System;
+using QFramework;
+using Yumihoshi.MVC.Models.Item;
+
 namespace Yumihoshi.MVC.ViewControllers.Item
 {
     public class SpecialController : BaseItemController
     {
-        
+        private SpecialModel _model;
+
+        private void Start()
+        {
+            _model = this.GetModel<SpecialModel>();
+        }
     }
 }

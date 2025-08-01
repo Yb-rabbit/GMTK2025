@@ -7,12 +7,15 @@
 // *****************************************************************************
 
 using System.Collections.Generic;
+using QFramework;
+using UnityEngine;
+using Yumihoshi.Managers;
+using Yumihoshi.MVC.Events;
 using Yumihoshi.SO.Item.Consumable;
 
 namespace Yumihoshi.MVC.Models.Item
 {
-    public class ConsumableModel : BaseItemModel
+    public class ConsumableModel : BaseItemModel<ConsumableData>
     {
-        private List<ConsumableData> _data;
     }
 }

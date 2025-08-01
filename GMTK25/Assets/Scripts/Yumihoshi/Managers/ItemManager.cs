@@ -6,8 +6,12 @@
 // @description:
 // *****************************************************************************
 
+using System;
+using System.Collections.Generic;
 using QFramework;
+using UnityEngine;
 using Yumihoshi.MVC.Apps;
+using Yumihoshi.MVC.Commands.Item;
 using Yumihoshi.MVC.ViewControllers.Item;
 using Yumihoshi.SO.Item.Consumable;
 using Yumihoshi.SO.Item.PassiveEquip;
@@ -16,36 +20,27 @@ using Yumihoshi.SO.Item.Weapon;
 
 namespace Yumihoshi.Managers
 {
-    public class ItemManager : HoshiVerseFramework.Base.Singleton<ItemManager>
+    public class ItemManager : HoshiVerseFramework.Base.Singleton<ItemManager>,
+        IController
     {
         // SO
         private ResLoader _resLoader = ResLoader.Allocate();
-        public WeaponSo WeaponDataSo { get; private set; }
-        public PassiveEquipSo PassiveEquipDataSo { get; private set; }
-        public ConsumableSo ConsumableDataSo { get; private set; }
-        public SpecialSo SpecialDataSo { get; private set; }
-        
+
+        public Dictionary<ItemCategory, ScriptableObject> ItemSoDict { get; } =
+            new();
+
         // Controller
         private WeaponController _weaponController;
-        private PassiveEquipController _passiveEquipController;
         private ConsumableController _consumableController;
+        private PassiveEquipController _passiveEquipController;
         private SpecialController _specialController;
+
 
         protected override void Awake()
         {
             base.Awake();
-            // TODO: 初始化资源kit（打包时记得调真机模式并重新打一次AB包，此TODO仅为提醒）
-#if !UNITY_EDITOR
-            ResKit.Init();
-#endif
-
-            // 初始化物品SO
-            WeaponDataSo = _resLoader.LoadSync<WeaponSo>("weapondatalist");
-            PassiveEquipDataSo =
-                _resLoader.LoadSync<PassiveEquipSo>("passiveequipdatalist");
-            ConsumableDataSo =
-                _resLoader.LoadSync<ConsumableSo>("consumabledatalist");
-            SpecialDataSo = _resLoader.LoadSync<SpecialSo>("specialdatalist");
+            InitSo();
+            InitControllers();
         }
 
         protected override void OnDestroy()
@@ -55,6 +50,61 @@ namespace Yumihoshi.Managers
             if (_resLoader == null) return;
             _resLoader.Recycle2Cache();
             _resLoader = null;
+        }
+
+        /// <summary>
+        /// 根据已有配置列表创建物品
+        /// </summary>
+        /// <param name="category"></param>
+        /// <param name="name"></param>
+        /// <param name="amount"></param>
+        public void CreateItem(ItemCategory category, string name,
+            int amount = 1)
+        {
+            this.SendCommand(new AddItemStackCmd(category, name, amount));
+        }
+
+        /// <summary>
+        /// 减少物品数量
+        /// </summary>
+        /// <param name="category"></param>
+        /// <param name="name"></param>
+        /// <param name="amount"></param>
+        public void DecreaseItem(ItemCategory category, string name,
+            int amount = 1)
+        {
+            this.SendCommand(new DecreaseItemStackCmd(category, name, amount));
+        }
+
+        private void InitSo()
+        {
+            // TODO: 初始化资源kit（打包时记得调真机模式并重新打一次AB包，此TODO仅为提醒）
+#if !UNITY_EDITOR
+            ResKit.Init();
+#endif
+            ItemSoDict[ItemCategory.Weapon] =
+                _resLoader.LoadSync<WeaponSo>("weapondatalist");
+            ItemSoDict[ItemCategory.PassiveEquip] =
+                _resLoader.LoadSync<PassiveEquipSo>("passiveequipdatalist");
+            ItemSoDict[ItemCategory.Consumable] =
+                _resLoader.LoadSync<ConsumableSo>("consumabledatalist");
+            ItemSoDict[ItemCategory.Special] =
+                _resLoader.LoadSync<SpecialSo>("specialdatalist");
+        }
+
+        private void InitControllers()
+        {
+            _weaponController = GetComponentInChildren<WeaponController>();
+            _consumableController =
+                GetComponentInChildren<ConsumableController>();
+            _passiveEquipController =
+                GetComponentInChildren<PassiveEquipController>();
+            _specialController = GetComponentInChildren<SpecialController>();
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return ItemApp.Interface;
         }
     }
 }

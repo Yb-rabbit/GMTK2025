@@ -6,10 +6,19 @@
 // @description:
 // *****************************************************************************
 
+using System;
+using QFramework;
+using Yumihoshi.MVC.Models.Item;
+
 namespace Yumihoshi.MVC.ViewControllers.Item
 {
     public class PassiveEquipController : BaseItemController
     {
-        
+        private PassiveEquipModel _model;
+
+        private void Start()
+        {
+            _model = this.GetModel<PassiveEquipModel>();
+        }
     }
 }

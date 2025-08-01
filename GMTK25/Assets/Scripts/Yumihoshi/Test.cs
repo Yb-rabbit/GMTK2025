@@ -6,9 +6,9 @@
 // @description:
 // *****************************************************************************
 
-using System;
 using UnityEngine;
 using Yumihoshi.Managers;
+using Yumihoshi.SO.Item.Consumable;
 
 namespace Yumihoshi
 {
@@ -16,7 +16,9 @@ namespace Yumihoshi
     {
         private void Start()
         {
-            Debug.Log(ItemManager.Instance.WeaponDataSo.WeaponDataList[0].itemName);
+            Debug.Log(
+                (ItemManager.Instance.ItemSoDict[ItemCategory.Consumable] as
+                    ConsumableSo).ConsumableDataList[0].itemName);
         }
     }
 }

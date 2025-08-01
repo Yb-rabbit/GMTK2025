@@ -7,12 +7,15 @@
 // *****************************************************************************
 
 using System.Collections.Generic;
+using QFramework;
+using UnityEngine;
+using Yumihoshi.Managers;
+using Yumihoshi.MVC.Events;
 using Yumihoshi.SO.Item.Weapon;
 
 namespace Yumihoshi.MVC.Models.Item
 {
-    public class WeaponModel : BaseItemModel
+    public class WeaponModel : BaseItemModel<WeaponData>
     {
-        private List<WeaponData> _data;
     }
 }
