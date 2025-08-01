@@ -11,6 +11,7 @@ public class BagShow : MonoBehaviour
     public int i = 0;
     Image image;
     public bool Onder;
+    public BagShow father;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,10 @@ public class BagShow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(father != null)
+        {
+            i=father.i;
+        }
         image.sprite = sp[i];
         spp = sp[i];
         word = words[i];

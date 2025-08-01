@@ -9,6 +9,7 @@ public class hp : MonoBehaviour
     public float wudiTim = 0.5f;
     float time;
     public camShark camshark;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,9 @@ public class hp : MonoBehaviour
     void Update()
     {
         if (HP < 0)
-            Debug.Log("Ê§°Ü");
+        {
+            anim.SetBool("die", true);
+        }
         if (wudi)
         {
             time-=Time.deltaTime;
@@ -39,6 +42,7 @@ public class hp : MonoBehaviour
             HP -= shanghai;
             wudi = true;
             time = wudiTim;
+            anim.Play("hurt");
             gameObject.tag = "Untagged";
         }
     }
