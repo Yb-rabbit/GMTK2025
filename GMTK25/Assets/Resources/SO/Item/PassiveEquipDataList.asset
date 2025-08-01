@@ -13,12 +13,21 @@ MonoBehaviour:
   m_Name: PassiveEquipDataList
   m_EditorClassIdentifier: 
   PassiveEquipDataList:
-  - itemName: "\u6563\u843D\u7684\u6811\u53F6"
+  - itemId: 0
+    itemName: "\u6563\u843D\u7684\u6811\u53F6"
     itemDesc: "\u6709\u7075\u6C14\u7684\u53F6\u7247\uFF0C\u56F4\u7ED5\u89D2\u8272\uFF0C\u4E3A\u89D2\u8272\u589E\u6DFB\u81EA\u7136\u5E87\u62A4\uFF0C\u6709\u8F7B\u5FAE\u653B\u51FB\u6548\u679C\u3002"
+    currentStackCount: 0
     maxStackCount: 5
-  - itemName: "\u7A7A\u5FC3\u7AF9\u7BA1"
+    itemIcon: {fileID: 0}
+  - itemId: 0
+    itemName: "\u7A7A\u5FC3\u7AF9\u7BA1"
     itemDesc: "\u5C16\u9510\u8F7B\u5DE7\u7684\u7AF9\u7BA1\uFF0C\u56F4\u7ED5\u89D2\u8272\uFF0C\u9644\u52A0\u653B\u51FB\u6548\u679C\u3002"
+    currentStackCount: 0
     maxStackCount: 5
-  - itemName: "\u53D1\u5149\u6D46\u679C"
+    itemIcon: {fileID: 0}
+  - itemId: 0
+    itemName: "\u53D1\u5149\u6D46\u679C"
     itemDesc: "\u795E\u5947\u7684\u91CE\u679C\u5B50\uFF0C\u56F4\u7ED5\u89D2\u8272\uFF0C\u9644\u52A0\u653B\u51FB\u6548\u679C\uFF0C\u5BF9\u602A\u7269\u9020\u6210\u51CF\u901F\u3002"
+    currentStackCount: 0
     maxStackCount: 5
+    itemIcon: {fileID: 0}

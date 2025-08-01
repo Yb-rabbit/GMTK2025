@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: ConsumableDataList
   m_EditorClassIdentifier: 
   ConsumableDataList:
-  - itemName: "\u8840\u7EA2\u8272\u836F\u5242"
+  - itemId: 0
+    itemName: "\u8840\u7EA2\u8272\u836F\u5242"
     itemDesc: 
+    currentStackCount: 0
     maxStackCount: 5
-  - itemName: "\u7EA2\u7EFF\u8272\u836F\u5242"
+    itemIcon: {fileID: 0}
+  - itemId: 0
+    itemName: "\u7EA2\u7EFF\u8272\u836F\u5242"
     itemDesc: 
+    currentStackCount: 0
     maxStackCount: 5
+    itemIcon: {fileID: 0}
