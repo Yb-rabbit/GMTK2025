@@ -13,10 +13,12 @@ namespace Yumihoshi
     /// </summary>
     public enum ItemCategory
     {
+        None,
+        
         /// <summary>
         /// 手持物类（武器）
         /// </summary>
-        Weapon = 1,
+        Weapon,
 
         /// <summary>
         /// 装配类
@@ -31,6 +33,6 @@ namespace Yumihoshi
         /// <summary>
         /// 特殊道具类
         /// </summary>
-        ConsumableSpecial
+        Special
     }
 }

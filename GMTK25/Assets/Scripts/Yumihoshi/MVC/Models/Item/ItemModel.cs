@@ -1,21 +1,26 @@
 ﻿// *****************************************************************************
 // @author: Yumihoshi
 // @email: xiaoyuesun915@gmail.com
-// @creationDate: 2025/08/01 12:39
+// @creationDate: 2025/08/01 12:40
 // @version: 1.0
 // @description:
 // *****************************************************************************
 
+using System;
+using System.Collections.Generic;
 using QFramework;
-using Yumihoshi.MVC.Models.Item;
+using UnityEngine;
+using Yumihoshi.SO.Item;
 
-namespace Yumihoshi.MVC.Apps
+namespace Yumihoshi.MVC.Models.Item
 {
-    public class ItemApp : Architecture<ItemApp>
+    public class ItemModel : AbstractModel
     {
-        protected override void Init()
+        
+
+        protected override void OnInit()
         {
-            RegisterModel(new ItemModel());
+            
         }
     }
 }

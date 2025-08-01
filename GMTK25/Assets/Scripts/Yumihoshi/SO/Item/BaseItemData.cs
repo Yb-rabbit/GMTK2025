@@ -12,11 +12,10 @@ using UnityEngine;
 
 namespace Yumihoshi.SO.Item
 {
-    [Serializable]
     public class BaseItemData
     {
         [LabelText("物品名称")] public string ItemName; // 物品名称
-        [LabelText("物品类型")] public ItemCategory ItemType; // 物品类型
+        [LabelText("物品类型")] public virtual ItemCategory ItemType { get; } // 物品类型
         [LabelText("物品描述")] [TextArea] public string ItemDesc; // 物品描述
     }
 }
