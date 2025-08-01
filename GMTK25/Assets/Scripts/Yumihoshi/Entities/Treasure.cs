@@ -10,21 +10,16 @@ using System;
 using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Yumihoshi.Managers;
 
 namespace Yumihoshi.Entities
 {
     public class Treasure : MonoBehaviour
     {
-        public string ItemId
-        {
-            get => _itemId;
-            set => _itemId = value;
-        }
-        
+        public string ItemId { get; private set; }
+
         private static readonly int OpenID = Animator.StringToHash("Open");
         private Animator _animator;
-        [Header("宝箱内物品配置")]
-        [LabelText("物品id")] [SerializeField] private string _itemId;
 
         private void Awake()
         {
@@ -33,15 +28,7 @@ namespace Yumihoshi.Entities
 
         private void Start()
         {
-            StartCoroutine(TT());
-        }
-
-        private IEnumerator TT()
-        {
-            yield return new WaitForSeconds(3f);
-            OpenTreasure();
-            yield return new WaitForSeconds(3f);
-            CloseTreasure();
+            ItemId = LevelManager.Instance.GetRandomCurLevelItemId();
         }
 
         /// <summary>

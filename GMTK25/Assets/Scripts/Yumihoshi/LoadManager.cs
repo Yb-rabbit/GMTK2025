@@ -6,6 +6,7 @@
 // @description:
 // *****************************************************************************
 
+using QFramework;
 using UnityEngine;
 using Yumihoshi.Utility;
 
@@ -15,6 +16,10 @@ namespace Yumihoshi
     {
         private void Awake()
         {
+            Debug.Log(nameof(ResKit.Init));
+#if !UNITY_EDITOR
+            ResKit.Init();
+#endif
             CommonUtility.LoadManagerScene();
         }
     }
