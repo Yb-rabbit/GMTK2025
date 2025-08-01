@@ -20,7 +20,7 @@ namespace HoshiVerseFramework.Base
         {
             get
             {
-                if (_applicationIsQuitting) return null;    // 避免退出播放模式时，实例重建
+                if (_applicationIsQuitting) return null; // 避免退出播放模式时，实例重建
                 if (_instance != null) return _instance;
                 lock (Lock)
                 {
@@ -51,7 +51,7 @@ namespace HoshiVerseFramework.Base
             if (_instance == this)
             {
                 _instance = null;
-                _applicationIsQuitting = true;      // 标记退出状态
+                _applicationIsQuitting = true; // 标记退出状态
             }
         }
     }
