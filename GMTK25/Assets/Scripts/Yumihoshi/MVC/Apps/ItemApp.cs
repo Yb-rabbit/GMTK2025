@@ -8,6 +8,7 @@
 
 using QFramework;
 using Yumihoshi.MVC.Models.Item;
+using Yumihoshi.Utility;
 
 namespace Yumihoshi.MVC.Apps
 {
@@ -15,6 +16,7 @@ namespace Yumihoshi.MVC.Apps
     {
         protected override void Init()
         {
+            RegisterUtility(new Storage());
             RegisterModel(new ConsumableModel());
             RegisterModel(new PassiveEquipModel());
             RegisterModel(new SpecialModel());

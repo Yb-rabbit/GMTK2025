@@ -7,6 +7,8 @@
 // *****************************************************************************
 
 using System;
+using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace Yumihoshi.SO.Item.Consumable
 {
@@ -15,5 +17,13 @@ namespace Yumihoshi.SO.Item.Consumable
     {
         // TODO: 补给类数据
         public override ItemCategory ItemType => ItemCategory.Consumable;
+        [Header("即刻恢复")]
+        [LabelText("总共恢复血量")] public float TotalHealAmount;
+        
+        [Header("缓慢恢复（若启用则即刻恢复无效）")]
+        [LabelText("是否缓慢恢复")] public bool IsSlowHeal;
+
+        [LabelText("恢复速度（每秒）")] public float HealPerSecond;
+        [LabelText("缓慢恢复时间（秒）")] public float SlowHealDuration;
     }
 }

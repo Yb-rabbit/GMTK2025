@@ -11,6 +11,7 @@ using QFramework;
 using UnityEngine;
 using Yumihoshi.Managers;
 using Yumihoshi.MVC.Events;
+using Yumihoshi.MVC.Events.Item;
 using Yumihoshi.MVC.Models.Item;
 using Yumihoshi.SO.Item;
 using Yumihoshi.SO.Item.Consumable;
