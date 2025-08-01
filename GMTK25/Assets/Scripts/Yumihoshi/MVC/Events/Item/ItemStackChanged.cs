@@ -6,7 +6,7 @@
 // @description:
 // *****************************************************************************
 
-namespace Yumihoshi.MVC.Events
+namespace Yumihoshi.MVC.Events.Item
 {
     public struct ItemStackChanged
     {

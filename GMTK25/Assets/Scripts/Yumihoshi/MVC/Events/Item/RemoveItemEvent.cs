@@ -1,17 +1,16 @@
 ﻿// *****************************************************************************
 // @author: Yumihoshi
 // @email: xiaoyuesun915@gmail.com
-// @creationDate: 2025/08/01 17:33
+// @creationDate: 2025/08/01 17:37
 // @version: 1.0
 // @description:
 // *****************************************************************************
 
-namespace Yumihoshi.MVC.Events
+namespace Yumihoshi.MVC.Events.Item
 {
-    public struct AddItemEvent
+    public class RemoveItemEvent
     {
-        public string name;
         public ItemCategory category;
-        public int stack;
+        public string name;
     }
 }
