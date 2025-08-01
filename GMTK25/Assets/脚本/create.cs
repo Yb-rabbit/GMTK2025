@@ -12,7 +12,8 @@ public class create : MonoBehaviour
     Vector3 direction;
     Vector3 targetPos;
     public Canvas canvas;
-    public Animator anim;
+    public Animator anim,anim1;
+    public SpriteRenderer sp1, sp2;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +28,14 @@ public class create : MonoBehaviour
         {
             rb.velocity = new Vector3(0, 0, 0);
             anim.SetBool("move", false);
+            anim1.SetBool("move", false);
         }
         if (Input.GetKey(KeyCode.A))
         {
             anim.SetBool("move", true);
+            anim1.SetBool("move", true);
+            sp1.enabled = false;
+            sp2.enabled = true;
             /* if(Input.GetKey (KeyCode.S))
                 direction=(LeftDown.position-transform.position).normalized;
              else if(Input.GetKey (KeyCode.W))
@@ -43,6 +48,9 @@ public class create : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             anim.SetBool("move", true);
+            anim1.SetBool("move", true);
+            sp1.enabled = true;
+            sp2.enabled = false;
             /*if (Input.GetKey(KeyCode.S))
                direction = (RightDown.position - transform.position).normalized;
             else if (Input.GetKey(KeyCode.W))
@@ -55,12 +63,14 @@ public class create : MonoBehaviour
        if (Input.GetKey(KeyCode.S)&&!Input.GetKey(KeyCode.A)&&!Input.GetKey (KeyCode.D))
         {
             anim.SetBool("move", true);
+            anim1.SetBool("move", true);
             direction = (Down.position - transform.position).normalized;
             rb.velocity = direction * speed;
         }
         if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
             anim.SetBool("move", true);
+            anim1.SetBool("move", true);
             direction = (Up.position - transform.position).normalized;
             rb.velocity = direction * speed;
         }
