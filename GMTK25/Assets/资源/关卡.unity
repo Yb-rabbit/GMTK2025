@@ -498,7 +498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zhendong: 0
   tim: 0.02
-  Speed: 0
+  Speed: 7
   StartPoint: {fileID: 570579845}
   FinishPoint: {fileID: 1315825419}
 --- !u!1001 &227720792
@@ -2666,7 +2666,7 @@ Transform:
   m_GameObject: {fileID: 1315825419}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2688334, y: 9.131004, z: -4.37}
+  m_LocalPosition: {x: -0.2688334, y: 9.131004, z: -8.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
