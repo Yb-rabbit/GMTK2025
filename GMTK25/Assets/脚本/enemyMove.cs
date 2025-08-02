@@ -20,6 +20,7 @@ public class enemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.rotation=cat.transform.rotation;
         if (cat != null)
         {
             float distance = Vector3.Distance(transform.position, cat.transform.position);
