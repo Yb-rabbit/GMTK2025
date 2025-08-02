@@ -13,12 +13,13 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using Yumihoshi.Managers;
 using Yumihoshi.MVC.Apps;
+using Yumihoshi.MVC.Commands.Item;
 using Yumihoshi.MVC.Models.Item;
 using Yumihoshi.SO.Item;
 
 namespace Yumihoshi.Entities
 {
-    public class Treasure : MonoBehaviour
+    public class Treasure : MonoBehaviour, IController
     {
         /// <summary>
         /// 物品数据基类，需as转换
@@ -65,7 +66,14 @@ namespace Yumihoshi.Entities
         {
             if (closeTreasure)
                 CloseTreasure();
+            this.SendCommand(new AddItemStackCmd(ItemData.ItemType,
+                ItemData.itemName));
             return ItemData;
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return ItemApp.Interface;
         }
     }
 }
