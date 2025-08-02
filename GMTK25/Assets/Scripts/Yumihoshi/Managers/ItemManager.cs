@@ -85,9 +85,6 @@ namespace Yumihoshi.Managers
         private void InitSo()
         {
             // TODO: 初始化资源kit（打包时记得调真机模式并重新打一次AB包，此TODO仅为提醒）
-#if !UNITY_EDITOR
-            ResKit.Init();
-#endif
             ItemSoDict[ItemCategory.Weapon] =
                 _resLoader.LoadSync<WeaponSo>("weapondatalist");
             ItemSoDict[ItemCategory.PassiveEquip] =
