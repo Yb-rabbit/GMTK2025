@@ -492,6 +492,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u6682\u505C\u83DC\u5355UI"
       objectReference: {fileID: 0}
+    - target: {fileID: 4594340566789070260, guid: bbf71f845bbf1514a9a6363e72ed2da8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447368002900918788, guid: bbf71f845bbf1514a9a6363e72ed2da8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
