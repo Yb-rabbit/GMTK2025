@@ -6,20 +6,21 @@
 // @description:
 // *****************************************************************************
 
-using System;
-using System.Collections;
-using Sirenix.OdinInspector;
+using QFramework;
 using UnityEngine;
 using Yumihoshi.Managers;
+using Yumihoshi.MVC.Apps;
+using Yumihoshi.MVC.Commands.Item;
+using Yumihoshi.SO.Item;
 
 namespace Yumihoshi.Entities
 {
-    public class Treasure : MonoBehaviour
+    public class Treasure : MonoBehaviour, IController
     {
-        public string ItemId { get; private set; }
-
         private static readonly int OpenID = Animator.StringToHash("Open");
         private Animator _animator;
+        private BaseItemData _itemData;
+        private string _itemId;
 
         private void Awake()
         {
@@ -28,7 +29,13 @@ namespace Yumihoshi.Entities
 
         private void Start()
         {
-            ItemId = LevelManager.Instance.GetRandomCurLevelItemId();
+            _itemId = LevelManager.Instance.GetRandomCurLevelItemId();
+            _itemData = ItemManager.Instance.FindItemById(_itemId);
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return ItemApp.Interface;
         }
 
         /// <summary>
@@ -38,13 +45,32 @@ namespace Yumihoshi.Entities
         {
             _animator.SetBool(OpenID, true);
         }
-        
+
         /// <summary>
         /// 关闭宝箱
         /// </summary>
         public void CloseTreasure()
         {
             _animator.SetBool(OpenID, false);
+        }
+
+        public BaseItemData GetItemData()
+        {
+            return _itemData;
+        }
+
+        /// <summary>
+        /// 拾取宝箱物品
+        /// </summary>
+        /// <returns></returns>
+        /// <param name="closeTreasure">拾取后是否关闭宝箱</param>
+        public BaseItemData PickUpTreasure(bool closeTreasure = true)
+        {
+            if (closeTreasure)
+                CloseTreasure();
+            this.SendCommand(new AddItemStackCmd(_itemData.ItemType,
+                _itemData.itemName));
+            return _itemData;
         }
     }
 }

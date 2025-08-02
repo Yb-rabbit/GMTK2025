@@ -11,7 +11,8 @@ using UnityEngine;
 
 namespace Yumihoshi.SO.Level
 {
-    [CreateAssetMenu(fileName = "NewLevelTreasureConfigList", menuName = "关卡/新建关卡物品库列表配置", order = 1)]
+    [CreateAssetMenu(fileName = "NewLevelTreasureConfigList",
+        menuName = "关卡/新建关卡物品库列表配置", order = 1)]
     public class LevelTreasureConfigList : ScriptableObject
     {
         public List<LevelTreasureConfig> ConfigList;

@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreasureGreen
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9823790a584b20d4eadb2154eb8568a3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9823790a584b20d4eadb2154eb8568a3, type: 3}
+      propertyPath: m_TagString
+      value: Treasure
+      objectReference: {fileID: 0}
     - target: {fileID: 6791355458143478680, guid: 9823790a584b20d4eadb2154eb8568a3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

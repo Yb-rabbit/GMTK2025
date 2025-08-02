@@ -15,6 +15,11 @@ namespace Yumihoshi.Managers
 {
     public class LevelManager : HoshiVerseFramework.Base.Singleton<LevelManager>
     {
+        private readonly List<string> _usedItemIds = new();
+        private LevelTreasureConfig _curLevelConfig;
+
+        private ResLoader _resLoader = ResLoader.Allocate();
+
         /// <summary>
         /// 关卡物品库配表
         /// </summary>
@@ -23,11 +28,7 @@ namespace Yumihoshi.Managers
         /// <summary>
         /// 当前关卡索引
         /// </summary>
-        public int CurrentLevelIndex { get; private set; } = 0;
-
-        private ResLoader _resLoader = ResLoader.Allocate();
-        private readonly List<string> _usedItemIds = new();
-        private LevelTreasureConfig _curLevelConfig;
+        public int CurrentLevelIndex { get; private set; }
 
         protected override void Awake()
         {
@@ -70,6 +71,7 @@ namespace Yumihoshi.Managers
                 Debug.LogWarning("当前关卡物品已全部使用，无法获取新的物品ID");
                 return "";
             }
+
             while (true)
             {
                 string id = _curLevelConfig.Config[

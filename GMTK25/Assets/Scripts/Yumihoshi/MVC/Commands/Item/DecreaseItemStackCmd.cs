@@ -10,7 +10,6 @@ using System;
 using QFramework;
 using UnityEngine;
 using Yumihoshi.Managers;
-using Yumihoshi.MVC.Events;
 using Yumihoshi.MVC.Events.Item;
 using Yumihoshi.MVC.Models.Item;
 using Yumihoshi.SO.Item;
@@ -62,7 +61,6 @@ namespace Yumihoshi.MVC.Commands.Item
             where TData : BaseItemData where TModel : BaseItemModel<TData>
         {
             // 如果已存在，减少堆叠数量
-            // TODO: 0检测，并添加移除物品和刚添加物品事件
             if (model.Data[_name].DecreaseStack(_amount))
             {
                 this.SendEvent(new ItemStackChanged

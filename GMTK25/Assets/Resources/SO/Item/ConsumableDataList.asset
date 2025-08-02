@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConsumableDataList:
   - itemId: 301
-    itemName: "\u8840\u7EA2\u8272\u836F\u5242"
-    itemDesc: "\u52A050\u6EF4\u8840\u91CF\u3002"
+    itemName: Blood-Red Potion
+    itemDesc: Instantly adds 50 points of health
     currentStackCount: 0
     maxStackCount: 5
     itemIcon: {fileID: 21300000, guid: 0cfd7f68e6ebf934abb9096e85f39503, type: 3}
@@ -24,8 +24,8 @@ MonoBehaviour:
     HealPerSecond: 0
     SlowHealDuration: 0
   - itemId: 302
-    itemName: "\u7EA2\u7EFF\u8272\u836F\u5242"
-    itemDesc: "\u7F13\u6162\u56DE\u8840\uFF0C\u6BCF1\u79D2\u56DE5\u6EF4\uFF0C\u6301\u7EED12\u79D2\u3002"
+    itemName: Red-Green Potion
+    itemDesc: Gradually restores 5 health points per second, lasting 12 seconds
     currentStackCount: 0
     maxStackCount: 5
     itemIcon: {fileID: 21300000, guid: 0383970c2716fbc4fa3dab41fdbdbdd5, type: 3}

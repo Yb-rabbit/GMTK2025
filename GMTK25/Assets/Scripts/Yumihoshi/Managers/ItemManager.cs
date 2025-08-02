@@ -7,11 +7,14 @@
 // *****************************************************************************
 
 using System.Collections.Generic;
+using System.Linq;
 using QFramework;
 using UnityEngine;
 using Yumihoshi.MVC.Apps;
 using Yumihoshi.MVC.Commands.Item;
+using Yumihoshi.MVC.Models.Item;
 using Yumihoshi.MVC.ViewControllers.Item;
+using Yumihoshi.SO.Item;
 using Yumihoshi.SO.Item.Consumable;
 using Yumihoshi.SO.Item.PassiveEquip;
 using Yumihoshi.SO.Item.Special;
@@ -24,14 +27,20 @@ namespace Yumihoshi.Managers
     {
         private ConsumableController _consumableController;
 
+        // Models
+        private ConsumableModel _consumableModel;
         private PassiveEquipController _passiveEquipController;
+
+        private PassiveEquipModel _passiveEquipModel;
 
         // SO
         private ResLoader _resLoader = ResLoader.Allocate();
         private SpecialController _specialController;
+        private SpecialModel _specialModel;
 
         // Controller
         private WeaponController _weaponController;
+        private WeaponModel _weaponModel;
 
         public Dictionary<ItemCategory, ScriptableObject> ItemSoDict { get; } =
             new();
@@ -42,6 +51,7 @@ namespace Yumihoshi.Managers
             base.Awake();
             InitSo();
             InitControllers();
+            InitModels();
         }
 
         protected override void OnDestroy()
@@ -53,11 +63,6 @@ namespace Yumihoshi.Managers
             _resLoader = null;
         }
 
-        public IArchitecture GetArchitecture()
-        {
-            return ItemApp.Interface;
-        }
-
         /// <summary>
         /// 根据已有配置列表创建物品
         /// </summary>
@@ -67,7 +72,8 @@ namespace Yumihoshi.Managers
         public void CreateItem(ItemCategory category, string name,
             int amount = 1)
         {
-            this.SendCommand(new AddItemStackCmd(category, name, amount));
+            _weaponController.SendCommand(
+                new AddItemStackCmd(category, name, amount));
         }
 
         /// <summary>
@@ -79,7 +85,65 @@ namespace Yumihoshi.Managers
         public void DecreaseItem(ItemCategory category, string name,
             int amount = 1)
         {
-            this.SendCommand(new DecreaseItemStackCmd(category, name, amount));
+            _weaponController.SendCommand(
+                new DecreaseItemStackCmd(category, name, amount));
+        }
+
+        /// <summary>
+        /// 根据物品ID查找物品
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public BaseItemData FindItemById(string id)
+        {
+            // 遍历字典
+            foreach (ScriptableObject itemSo in ItemSoDict.Values)
+                switch (itemSo)
+                {
+                    // 如果是武器
+                    case WeaponSo weaponSo:
+                    {
+                        foreach (WeaponData data in
+                                 weaponSo.WeaponDataList.Where(data =>
+                                     data.itemId == id))
+                            return data;
+
+                        break;
+                    }
+                    // 如果是被动装备
+                    case PassiveEquipSo passiveEquipSo:
+                    {
+                        foreach (PassiveEquipData data in
+                                 passiveEquipSo.PassiveEquipDataList
+                                     .Where(data =>
+                                         data.itemId == id))
+                            return data;
+
+                        break;
+                    }
+                    // 如果是消耗品
+                    case ConsumableSo consumableSo:
+                    {
+                        foreach (ConsumableData data in
+                                 consumableSo.ConsumableDataList.Where(data =>
+                                     data.itemId == id))
+                            return data;
+
+                        break;
+                    }
+                    // 如果是特殊物品
+                    case SpecialSo specialSo:
+                    {
+                        foreach (SpecialData data in
+                                 specialSo.SpecialDataList.Where(data =>
+                                     data.itemId == id))
+                            return data;
+                        break;
+                    }
+                }
+
+            Debug.LogWarning("未找到对应ID的物品: " + id);
+            return null;
         }
 
         private void InitSo()
@@ -103,6 +167,21 @@ namespace Yumihoshi.Managers
             _passiveEquipController =
                 GetComponentInChildren<PassiveEquipController>();
             _specialController = GetComponentInChildren<SpecialController>();
+        }
+
+        private void InitModels()
+        {
+            // 获取模型
+            _consumableModel = _weaponController.GetModel<ConsumableModel>();
+            _passiveEquipModel =
+                _weaponController.GetModel<PassiveEquipModel>();
+            _specialModel = _weaponController.GetModel<SpecialModel>();
+            _weaponModel = _weaponController.GetModel<WeaponModel>();
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return ItemApp.Interface;
         }
     }
 }

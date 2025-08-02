@@ -13,7 +13,6 @@ namespace Yumihoshi.SO.Item.PassiveEquip
     [Serializable]
     public class PassiveEquipData : BaseItemData
     {
-        // TODO: 装配类数据
         public override ItemCategory ItemType => ItemCategory.PassiveEquip;
     }
 }

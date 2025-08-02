@@ -6,17 +6,25 @@
 // @description:
 // *****************************************************************************
 
+using System.Collections;
 using UnityEngine;
-using Yumihoshi.Managers;
+using Yumihoshi.Entities;
 
 namespace Yumihoshi
 {
     public class Test : MonoBehaviour
     {
+        public Treasure TreasureTest;
+
         private void Start()
         {
-            ES3.Save("TestInt", 12345);
-            Debug.Log(LevelManager.Instance.LevelTreasureList.ConfigList[0].Config[0]);
+            //Debug.Log(TreasureTest.PickUpTreasure().itemDesc);
+            StartCoroutine(Testt());
+        }
+
+        private IEnumerator Testt()
+        {
+            yield return new WaitForSeconds(3f);
         }
     }
 }

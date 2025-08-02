@@ -16,13 +16,13 @@ namespace Yumihoshi.SO.Item
         [LabelText("物品ID")] public string itemId; // 物品ID
         [LabelText("物品名称")] public string itemName; // 物品名称
         [LabelText("物品描述")] [TextArea] public string itemDesc; // 物品描述
-        [LabelText("当前堆叠数量")] public int currentStackCount = 0; // 当前堆叠数量
+        [LabelText("物品UI小图标")] public Sprite itemIcon; // 物品图标
+        [LabelText("物品UI大图标")] public Sprite itemBigIcon; // 物品大图标
+        [LabelText("当前堆叠数量")] public int currentStackCount; // 当前堆叠数量
         [LabelText("最大堆叠数量")] public int maxStackCount = 1; // 最大堆叠数量
 
         [LabelText("物品类型")]
         public virtual ItemCategory ItemType { get; } // 物品类型
-        
-        [LabelText("物品UI图标")] public Sprite itemIcon; // 物品图标
 
         /// <summary>
         /// 增加堆叠数量
