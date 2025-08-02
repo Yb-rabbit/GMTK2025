@@ -492,6 +492,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u6682\u505C\u83DC\u5355UI"
       objectReference: {fileID: 0}
+    - target: {fileID: 5055060549729276089, guid: bbf71f845bbf1514a9a6363e72ed2da8, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 367299ddbaa3e3642aa67665a71789e8, type: 3}
+    - target: {fileID: 6583044699889831820, guid: bbf71f845bbf1514a9a6363e72ed2da8, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 367299ddbaa3e3642aa67665a71789e8, type: 3}
+    - target: {fileID: 7303297056409972486, guid: bbf71f845bbf1514a9a6363e72ed2da8, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 367299ddbaa3e3642aa67665a71789e8, type: 3}
+    - target: {fileID: 8585883313538646590, guid: bbf71f845bbf1514a9a6363e72ed2da8, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 367299ddbaa3e3642aa67665a71789e8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
