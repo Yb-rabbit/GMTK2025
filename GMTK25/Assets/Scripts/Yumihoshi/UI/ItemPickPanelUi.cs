@@ -6,10 +6,12 @@
 // @description:
 // *****************************************************************************
 
+using System;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Yumihoshi.Managers;
 
 namespace Yumihoshi.UI
 {
@@ -21,7 +23,12 @@ namespace Yumihoshi.UI
         [LabelText("物品名文本")] [SerializeField] private TextMeshProUGUI itemTmp;
         [LabelText("物品描述文本")] [SerializeField] private TextMeshProUGUI itemDescTmp;
         [LabelText("拾取按钮")] [SerializeField] private Button pickBtn;
-        
+
+        private void Start()
+        {
+            pickBtn.onClick.AddListener(InputManager.Instance.Pick);
+        }
+
         /// <summary>
         /// 设置物品图片
         /// </summary>

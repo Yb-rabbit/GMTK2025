@@ -14,6 +14,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Yumihoshi.Entities;
 using Yumihoshi.SO.Item;
+using Yumihoshi.SO.Item.Weapon;
 using Yumihoshi.UI;
 
 namespace Yumihoshi.Managers
@@ -35,6 +36,21 @@ namespace Yumihoshi.Managers
                 GameObject.FindWithTag("TreasureItemInfoPanel")
                     .GetComponent<ItemPickPanelUi>();
             _treasureItemInfoPanel.gameObject.SetActive(false);
+        }
+
+        public void Pick()
+        {
+            Close();
+            InventoryManager.Instance.Weapon.Value =
+                _nearestTreasure.GetItemData() as WeaponData;
+            Destroy(_nearestTreasure.gameObject);
+        }
+
+        private void OnPickTreasure(InputValue value)
+        {
+            if (!value.isPressed) return;
+            Debug.Log("Pick Treasure");
+            Pick();
         }
 
         private void OnOpenCloseTreasure(InputValue value)

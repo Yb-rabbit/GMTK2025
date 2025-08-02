@@ -14,6 +14,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Yumihoshi.Managers;
 using Yumihoshi.MVC.Apps;
+using Yumihoshi.SO.Item.Weapon;
 
 namespace Yumihoshi.UI
 {
@@ -32,6 +33,13 @@ namespace Yumihoshi.UI
             InventoryManager.Instance.CurActiveSpareItemSize
                 .RegisterWithInitValue(SetSpareItemSize)
                 .UnRegisterWhenGameObjectDestroyed(gameObject);
+            InventoryManager.Instance.Weapon.Register(WeaponChanged)
+                .UnRegisterWhenGameObjectDestroyed(gameObject);
+        }
+
+        private void WeaponChanged(WeaponData weaponData)
+        {
+            SetWeaponImg(weaponData.itemIcon);
         }
 
         /// <summary>
@@ -41,6 +49,7 @@ namespace Yumihoshi.UI
         public void SetWeaponImg(Sprite sprite)
         {
             weaponImg.sprite = sprite;
+            weaponImg.gameObject.SetActive(true);
         }
 
         /// <summary>
@@ -50,6 +59,7 @@ namespace Yumihoshi.UI
         public void SetItemInHandImg(Sprite sprite)
         {
             itemInHandImg.sprite = sprite;
+            itemInHandImg.gameObject.SetActive(true);
         }
 
         /// <summary>
@@ -66,6 +76,7 @@ namespace Yumihoshi.UI
             }
 
             spareItemImgs[index].sprite = sprite;
+            spareItemImgs[index].color = Color.white;
         }
         
         private void SetSpareItemSize(int count)
@@ -78,6 +89,7 @@ namespace Yumihoshi.UI
             for (var i = 0; i < count; i++)
             {
                 spareItemImgs[i].gameObject.SetActive(true);
+                spareItemImgs[i].color = Color.clear;
             }
         }
 

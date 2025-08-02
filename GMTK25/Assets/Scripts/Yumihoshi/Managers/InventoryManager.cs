@@ -19,8 +19,11 @@ namespace Yumihoshi.Managers
     public class
         InventoryManager : HoshiVerseFramework.Base.Singleton<InventoryManager>
     {
-        public WeaponData Weapon { get; set; }
-        public BaseItemData ItemInHand { get; set; }
+        public BindableProperty<WeaponData> Weapon { get; private set; } =
+            new();
+
+        public BindableProperty<BaseItemData> ItemInHand { get; private set; } =
+            new();
         public List<BaseItemData> SpareItems { get; } = new();
 
         public BindableProperty<int> CurActiveSpareItemSize
