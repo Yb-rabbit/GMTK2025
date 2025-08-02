@@ -13,12 +13,12 @@ using Yumihoshi.SO.Item.Weapon;
 
 namespace Yumihoshi.MVC.Commands.Inventory
 {
-    public class ChangeWeapon : AbstractCommand
+    public class ChangeWeaponCmd : AbstractCommand
     {
         private readonly WeaponData _weaponData;
         private InventoryModel _model;
 
-        public ChangeWeapon(WeaponData weaponData)
+        public ChangeWeaponCmd(WeaponData weaponData)
         {
             _weaponData = weaponData;
         }

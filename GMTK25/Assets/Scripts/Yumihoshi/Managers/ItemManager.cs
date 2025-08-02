@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using QFramework;
 using UnityEngine;
+using Yumihoshi.MVC.Apps;
 using Yumihoshi.MVC.Commands.Item;
 using Yumihoshi.MVC.Models.Item;
 using Yumihoshi.MVC.ViewControllers.Item;
@@ -21,7 +22,8 @@ using Yumihoshi.SO.Item.Weapon;
 
 namespace Yumihoshi.Managers
 {
-    public class ItemManager : HoshiVerseFramework.Base.Singleton<ItemManager>
+    public class ItemManager : HoshiVerseFramework.Base.Singleton<ItemManager>,
+        IController
     {
         private ConsumableController _consumableController;
 
@@ -175,6 +177,11 @@ namespace Yumihoshi.Managers
                 _weaponController.GetModel<PassiveEquipModel>();
             _specialModel = _weaponController.GetModel<SpecialModel>();
             _weaponModel = _weaponController.GetModel<WeaponModel>();
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return ItemApp.Interface;
         }
     }
 }

@@ -12,7 +12,9 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 using Yumihoshi.Managers;
+using Yumihoshi.MVC.Events.Inventory;
 using Yumihoshi.MVC.Models.Inventory;
+using Yumihoshi.SO.Item;
 using Yumihoshi.SO.Item.Weapon;
 
 namespace Yumihoshi.UI
@@ -29,18 +31,41 @@ namespace Yumihoshi.UI
         private void Start()
         {
             // 注册事件
-            InventoryManager.Instance.GetModel<InventoryModel>()
+            var model = InventoryManager.Instance.GetModel<InventoryModel>();
+            model
                 .CurActiveSpareItemSize
                 .RegisterWithInitValue(SetSpareItemSize)
                 .UnRegisterWhenGameObjectDestroyed(gameObject);
-            InventoryManager.Instance.GetModel<InventoryModel>().Weapon
+            model.Weapon
                 .Register(WeaponChanged)
                 .UnRegisterWhenGameObjectDestroyed(gameObject);
+            model.ItemInHand.Register(ItemInHandChanged)
+                .UnRegisterWhenGameObjectDestroyed(gameObject);
+            InventoryManager.Instance.RegisterEvent<SpareItemChangedEvent>(
+                SpareItemChanged);
+        }
+
+        private void SpareItemChanged(SpareItemChangedEvent e)
+        {
+            for (var i = 0; i < e.newSpareItems.Count; i++)
+                if (e.newSpareItems[i] != null)
+                    SetSpareItemImg(i, e.newSpareItems[i].itemIcon);
         }
 
         private void WeaponChanged(WeaponData weaponData)
         {
             SetWeaponImg(weaponData.itemIcon);
+        }
+
+        private void ItemInHandChanged(BaseItemData itemData)
+        {
+            if (itemData == null)
+            {
+                itemInHandImg.gameObject.SetActive(false);
+                return;
+            }
+
+            SetItemInHandImg(itemData.itemIcon);
         }
 
         /// <summary>
@@ -91,7 +116,8 @@ namespace Yumihoshi.UI
             for (var i = 0; i < count; i++)
             {
                 spareItemImgs[i].gameObject.SetActive(true);
-                spareItemImgs[i].color = Color.clear;
+                if (!spareItemImgs[i].sprite)
+                    spareItemImgs[i].color = Color.clear;
             }
         }
     }

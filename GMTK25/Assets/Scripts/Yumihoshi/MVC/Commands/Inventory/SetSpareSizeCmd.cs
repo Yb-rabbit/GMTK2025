@@ -12,12 +12,12 @@ using Yumihoshi.MVC.Models.Inventory;
 
 namespace Yumihoshi.MVC.Commands.Inventory
 {
-    public class SetSpareSize : AbstractCommand
+    public class SetSpareSizeCmd : AbstractCommand
     {
         private readonly InventoryModel _model;
         private readonly int _size;
 
-        public SetSpareSize(int size)
+        public SetSpareSizeCmd(int size)
         {
             _size = size;
             _model = this.GetModel<InventoryModel>();
@@ -29,7 +29,12 @@ namespace Yumihoshi.MVC.Commands.Inventory
                     .InventoryConfigSo.defaultSpareItemSize ||
                 _size > InventoryManager.Instance
                     .InventoryConfigSo.maxSpareItemSize) return;
+
             _model.CurActiveSpareItemSize.Value = _size;
+
+            if (_model.SpareItems.Count < _size)
+                for (var i = 0; i < _size - _model.SpareItems.Count; i++)
+                    _model.SpareItems.Add(null);
         }
     }
 }

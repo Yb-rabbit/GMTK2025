@@ -48,13 +48,14 @@ namespace Yumihoshi.Managers
                     break;
                 case ItemCategory.Weapon:
                     InventoryManager.Instance.SendCommand(
-                        new ChangeWeapon(
+                        new ChangeWeaponCmd(
                             _nearestTreasure.GetItemData() as WeaponData));
                     break;
                 case ItemCategory.PassiveEquip:
                     break;
                 case ItemCategory.Consumable:
-                    // TODO: 增加消耗品到背包
+                    InventoryManager.Instance.SendCommand(
+                        new AddItemCmd(_nearestTreasure.GetItemData()));
                     break;
                 case ItemCategory.Special:
                     break;

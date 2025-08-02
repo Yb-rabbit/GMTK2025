@@ -35,6 +35,8 @@ namespace Yumihoshi.MVC.Models.Inventory
             CurActiveSpareItemSize =
                 new BindableProperty<int>(InventoryManager.Instance
                     .InventoryConfigSo.defaultSpareItemSize);
+            for (var i = 0; i < CurActiveSpareItemSize.Value; i++)
+                SpareItems.Add(null);
         }
     }
 }
