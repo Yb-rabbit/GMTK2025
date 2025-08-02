@@ -10,7 +10,6 @@ using System;
 using QFramework;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Yumihoshi.Entities;
 using Yumihoshi.MVC.Commands.Inventory;
 using Yumihoshi.SO.Item;
@@ -38,17 +37,13 @@ namespace Yumihoshi.Managers
                     .GetComponent<ItemPickPanelUi>();
             _treasureItemInfoPanel.gameObject.SetActive(false);
         }
-        void Update()
+
+        private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.E)) 
-            {
-                OnOpenCloseTreasure();
-            }
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                OnPickTreasure();
-            }
+            if (Input.GetKeyDown(KeyCode.E)) OnOpenCloseTreasure();
+            if (Input.GetKeyDown(KeyCode.Space)) OnPickTreasure();
         }
+
         public void Pick()
         {
             Close();
@@ -79,13 +74,14 @@ namespace Yumihoshi.Managers
         private void OnPickTreasure()
         {
             //if (!value.isPressed) return;
-           // Debug.Log("Pick Treasure");
+            // Debug.Log("Pick Treasure");
+            if (!_treasureItemInfoPanel.gameObject.activeInHierarchy) return;
             Pick();
         }
 
         private void OnOpenCloseTreasure()
         {
-           // if (!value.isPressed) return;
+            // if (!value.isPressed) return;
             Debug.Log("Open/Close Treasure");
             // 若信息面板存在，隐藏并关闭宝箱
             if (_treasureItemInfoPanel.gameObject.activeInHierarchy)
