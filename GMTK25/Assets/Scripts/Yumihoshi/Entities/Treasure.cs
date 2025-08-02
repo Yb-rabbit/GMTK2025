@@ -21,14 +21,10 @@ namespace Yumihoshi.Entities
 {
     public class Treasure : MonoBehaviour, IController
     {
-        /// <summary>
-        /// 物品数据基类，需as转换
-        /// </summary>
-        public BaseItemData ItemData { get; private set; }
-
         private static readonly int OpenID = Animator.StringToHash("Open");
         private Animator _animator;
         private string _itemId;
+        private BaseItemData _itemData;
 
         private void Awake()
         {
@@ -38,7 +34,7 @@ namespace Yumihoshi.Entities
         private void Start()
         {
             _itemId = LevelManager.Instance.GetRandomCurLevelItemId();
-            ItemData = ItemManager.Instance.FindItemById(_itemId);
+            _itemData = ItemManager.Instance.FindItemById(_itemId);
         }
 
         /// <summary>
@@ -66,9 +62,9 @@ namespace Yumihoshi.Entities
         {
             if (closeTreasure)
                 CloseTreasure();
-            this.SendCommand(new AddItemStackCmd(ItemData.ItemType,
-                ItemData.itemName));
-            return ItemData;
+            this.SendCommand(new AddItemStackCmd(_itemData.ItemType,
+                _itemData.itemName));
+            return _itemData;
         }
 
         public IArchitecture GetArchitecture()

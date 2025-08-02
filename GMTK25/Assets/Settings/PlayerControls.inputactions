@@ -1,0 +1,54 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "8272e6db-c184-4063-9f6f-55b0193bad4f",
+            "actions": [
+                {
+                    "name": "OpenCloseTreasure",
+                    "type": "Button",
+                    "id": "033ee5d7-0246-4870-9ca5-f201ab27f6e1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PickTreasure",
+                    "type": "Button",
+                    "id": "036e7ac6-357c-4d09-97e4-516de8fe070e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e704d196-1506-49b7-b9f7-1ec808fe2667",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenCloseTreasure",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "14cb2ec2-d48c-4c7d-8e4b-59f1839eb879",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickTreasure",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
