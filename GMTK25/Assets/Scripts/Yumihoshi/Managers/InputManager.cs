@@ -6,21 +6,26 @@
 // @description:
 // *****************************************************************************
 
-using HoshiVerseFramework.Base;
+using System;
+using QFramework;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Yumihoshi.Entities;
+using Yumihoshi.MVC.Commands.Inventory;
+using Yumihoshi.MVC.ViewControllers.Inventory;
 using Yumihoshi.SO.Item;
 using Yumihoshi.SO.Item.Weapon;
 using Yumihoshi.UI;
 
 namespace Yumihoshi.Managers
 {
-    public class InputManager : Singleton<InputManager>
+    public class InputManager : HoshiVerseFramework.Base.Singleton<InputManager>
     {
         [LabelText("按E球体碰撞盒半径")] [SerializeField]
         private float sphereCastRadius = 1.5f;
+
+        private InventoryController _inventoryController;
 
         private Treasure _nearestTreasure;
 
@@ -30,6 +35,7 @@ namespace Yumihoshi.Managers
 
         private void Start()
         {
+            // TODO: 获取inventorycontroller
             _treasureLayer = LayerMask.GetMask("Treasure");
             _treasureItemInfoPanel =
                 GameObject.FindWithTag("TreasureItemInfoPanel")
@@ -40,8 +46,26 @@ namespace Yumihoshi.Managers
         public void Pick()
         {
             Close();
-            InventoryManager.Instance.Weapon.Value =
-                _nearestTreasure.GetItemData() as WeaponData;
+            switch (_nearestTreasure.GetItemData().ItemType)
+            {
+                case ItemCategory.None:
+                    break;
+                case ItemCategory.Weapon:
+                    _inventoryController.SendCommand(
+                        new ChangeWeapon(
+                            _nearestTreasure.GetItemData() as WeaponData));
+                    break;
+                case ItemCategory.PassiveEquip:
+                    break;
+                case ItemCategory.Consumable:
+                    // TODO: 增加消耗品到背包
+                    break;
+                case ItemCategory.Special:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
             Destroy(_nearestTreasure.gameObject);
         }
 

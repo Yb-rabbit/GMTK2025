@@ -24,7 +24,6 @@ namespace Yumihoshi.SO.Item.Consumable
 
         [LabelText("缓慢恢复时间（秒）")] public float SlowHealDuration;
 
-        // TODO: 补给类数据
         public override ItemCategory ItemType => ItemCategory.Consumable;
     }
 }

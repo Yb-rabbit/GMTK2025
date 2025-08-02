@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using QFramework;
 using UnityEngine;
-using Yumihoshi.MVC.Apps;
 using Yumihoshi.MVC.Commands.Item;
 using Yumihoshi.MVC.Models.Item;
 using Yumihoshi.MVC.ViewControllers.Item;
@@ -22,8 +21,7 @@ using Yumihoshi.SO.Item.Weapon;
 
 namespace Yumihoshi.Managers
 {
-    public class ItemManager : HoshiVerseFramework.Base.Singleton<ItemManager>,
-        IController
+    public class ItemManager : HoshiVerseFramework.Base.Singleton<ItemManager>
     {
         private ConsumableController _consumableController;
 
@@ -63,11 +61,6 @@ namespace Yumihoshi.Managers
             _resLoader = null;
         }
 
-        public IArchitecture GetArchitecture()
-        {
-            return ItemApp.Interface;
-        }
-
         /// <summary>
         /// 根据已有配置列表创建物品
         /// </summary>
@@ -77,7 +70,8 @@ namespace Yumihoshi.Managers
         public void CreateItem(ItemCategory category, string name,
             int amount = 1)
         {
-            this.SendCommand(new AddItemStackCmd(category, name, amount));
+            _weaponController.SendCommand(
+                new AddItemStackCmd(category, name, amount));
         }
 
         /// <summary>
@@ -89,7 +83,8 @@ namespace Yumihoshi.Managers
         public void DecreaseItem(ItemCategory category, string name,
             int amount = 1)
         {
-            this.SendCommand(new DecreaseItemStackCmd(category, name, amount));
+            _weaponController.SendCommand(
+                new DecreaseItemStackCmd(category, name, amount));
         }
 
         /// <summary>
@@ -175,10 +170,11 @@ namespace Yumihoshi.Managers
         private void InitModels()
         {
             // 获取模型
-            _consumableModel = this.GetModel<ConsumableModel>();
-            _passiveEquipModel = this.GetModel<PassiveEquipModel>();
-            _specialModel = this.GetModel<SpecialModel>();
-            _weaponModel = this.GetModel<WeaponModel>();
+            _consumableModel = _weaponController.GetModel<ConsumableModel>();
+            _passiveEquipModel =
+                _weaponController.GetModel<PassiveEquipModel>();
+            _specialModel = _weaponController.GetModel<SpecialModel>();
+            _weaponModel = _weaponController.GetModel<WeaponModel>();
         }
     }
 }

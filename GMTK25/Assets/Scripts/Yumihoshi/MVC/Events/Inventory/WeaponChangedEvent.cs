@@ -1,18 +1,17 @@
 ﻿// *****************************************************************************
 // @author: Yumihoshi
 // @email: xiaoyuesun915@gmail.com
-// @creationDate: 2025/08/01 13:41
+// @creationDate: 2025/08/02 16:22
 // @version: 1.0
 // @description:
 // *****************************************************************************
 
-using System;
+using Yumihoshi.SO.Item.Weapon;
 
-namespace Yumihoshi.SO.Item.PassiveEquip
+namespace Yumihoshi.MVC.Events.Inventory
 {
-    [Serializable]
-    public class PassiveEquipData : BaseItemData
+    public struct WeaponChangedEvent
     {
-        public override ItemCategory ItemType => ItemCategory.PassiveEquip;
+        public WeaponData newWeapon;
     }
 }

@@ -20,7 +20,6 @@ namespace Yumihoshi.SO.Item.Weapon
         [LabelText("攻击范围")] public float AttackRange;
         [LabelText("出刀时防御值")] public float DefenseValue;
 
-        // TODO: 手持物数据
         public override ItemCategory ItemType => ItemCategory.Weapon;
     }
 }

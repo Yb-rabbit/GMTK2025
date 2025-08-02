@@ -11,7 +11,6 @@ using QFramework;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
-using Yumihoshi.Managers;
 using Yumihoshi.MVC.Apps;
 using Yumihoshi.SO.Item.Weapon;
 
@@ -29,11 +28,12 @@ namespace Yumihoshi.UI
         private void Start()
         {
             // 注册事件
-            InventoryManager.Instance.CurActiveSpareItemSize
-                .RegisterWithInitValue(SetSpareItemSize)
-                .UnRegisterWhenGameObjectDestroyed(gameObject);
-            InventoryManager.Instance.Weapon.Register(WeaponChanged)
-                .UnRegisterWhenGameObjectDestroyed(gameObject);
+            // TODO: 解开注释
+            // InventoryManager.Instance.CurActiveSpareItemSize
+            //     .RegisterWithInitValue(SetSpareItemSize)
+            //     .UnRegisterWhenGameObjectDestroyed(gameObject);
+            // InventoryManager.Instance.Weapon.Register(WeaponChanged)
+            //     .UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 
         public IArchitecture GetArchitecture()

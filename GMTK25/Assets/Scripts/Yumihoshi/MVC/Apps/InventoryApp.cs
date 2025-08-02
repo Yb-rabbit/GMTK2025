@@ -1,18 +1,19 @@
 ﻿// *****************************************************************************
 // @author: Yumihoshi
 // @email: xiaoyuesun915@gmail.com
-// @creationDate: 2025/08/01 13:41
+// @creationDate: 2025/08/02 15:59
 // @version: 1.0
 // @description:
 // *****************************************************************************
 
-using System;
+using QFramework;
 
-namespace Yumihoshi.SO.Item.PassiveEquip
+namespace Yumihoshi.MVC.Apps
 {
-    [Serializable]
-    public class PassiveEquipData : BaseItemData
+    public class InventoryApp : Architecture<InventoryApp>
     {
-        public override ItemCategory ItemType => ItemCategory.PassiveEquip;
+        protected override void Init()
+        {
+        }
     }
 }

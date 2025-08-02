@@ -13,7 +13,6 @@ namespace Yumihoshi.SO.Item.Special
     [Serializable]
     public class SpecialData : BaseItemData
     {
-        // TODO: 特殊道具类数据
         public override ItemCategory ItemType => ItemCategory.Special;
     }
 }
