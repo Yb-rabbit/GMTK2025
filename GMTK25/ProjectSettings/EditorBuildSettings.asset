@@ -11,4 +11,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Yumihoshi/ManagerScene.unity
     guid: 74f5b36a1a67fe244babaf79ed44b423
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 05a5cc4457ce3ad418808d1aa341a986, type: 3}
