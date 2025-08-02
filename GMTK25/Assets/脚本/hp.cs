@@ -24,7 +24,7 @@ public class hp : MonoBehaviour
     {
         Debug.Log(PingZhang);
         if(transform.position.y<-20)
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(0);
         if (HP < 0)
         {
             anim.SetBool("die", true);

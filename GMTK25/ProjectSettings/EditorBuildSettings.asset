@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ifancy/MenuScene.unity
     guid: 7ced72ca1576b2043811bf3b12508b66
   - enabled: 1
+    path: "Assets/\u8D44\u6E90/\u5173\u5361.unity"
+    guid: 8162d466fe8ced44ab5ba84d44cdd81a
+  - enabled: 0
     path: "Assets/Scenes/Yumihoshi/\u5173\u5361.unity"
     guid: e1cbe2bacfb293341a82af38bf2eb216
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Yumihoshi/ManagerScene.unity
     guid: 74f5b36a1a67fe244babaf79ed44b423
   m_configObjects:
