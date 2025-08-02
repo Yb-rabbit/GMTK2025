@@ -63,7 +63,8 @@ namespace Yumihoshi.Entities
         /// <param name="closeTreasure">拾取后是否关闭宝箱</param>
         public BaseItemData PickUpTreasure(bool closeTreasure = true)
         {
-            CloseTreasure();
+            if (closeTreasure)
+                CloseTreasure();
             return ItemData;
         }
     }
