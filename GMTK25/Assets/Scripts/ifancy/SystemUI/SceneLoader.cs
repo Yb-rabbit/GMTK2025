@@ -10,8 +10,10 @@ public class SceneLoader : MonoBehaviour
         // ��鳡���Ƿ���Build Settings��
         if (IsSceneInBuildSettings(sceneName))
         {
+            Time.timeScale = 1f;
             ActionKit.ScreenTransition.FadeInOut()
-                .OnInFinish(() => SceneManager.LoadScene(sceneName)).Start(this);
+                .OnInFinish(() => SceneManager.LoadScene(sceneName))
+                .Start(this);
         }
         else
         {
