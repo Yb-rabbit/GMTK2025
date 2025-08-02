@@ -488,6 +488,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3060953058287636282, guid: bbf71f845bbf1514a9a6363e72ed2da8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3932452398338945435, guid: bbf71f845bbf1514a9a6363e72ed2da8, type: 3}
       propertyPath: m_Name
       value: "\u6682\u505C\u83DC\u5355UI"
@@ -496,15 +500,80 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6395542089344557410, guid: bbf71f845bbf1514a9a6363e72ed2da8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7447368002900918788, guid: bbf71f845bbf1514a9a6363e72ed2da8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117025543197730420, guid: bbf71f845bbf1514a9a6363e72ed2da8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00047302246
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbf71f845bbf1514a9a6363e72ed2da8, type: 3}
+--- !u!1001 &6562986152903755092
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1072083678277612161, guid: bf6bf5982149f1c4b93ba151c347216e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1330.2872
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072083678277612161, guid: bf6bf5982149f1c4b93ba151c347216e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 641.89777
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072083678277612161, guid: bf6bf5982149f1c4b93ba151c347216e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.265785
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072083678277612161, guid: bf6bf5982149f1c4b93ba151c347216e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072083678277612161, guid: bf6bf5982149f1c4b93ba151c347216e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072083678277612161, guid: bf6bf5982149f1c4b93ba151c347216e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072083678277612161, guid: bf6bf5982149f1c4b93ba151c347216e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072083678277612161, guid: bf6bf5982149f1c4b93ba151c347216e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072083678277612161, guid: bf6bf5982149f1c4b93ba151c347216e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072083678277612161, guid: bf6bf5982149f1c4b93ba151c347216e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711412315112989951, guid: bf6bf5982149f1c4b93ba151c347216e, type: 3}
+      propertyPath: m_Name
+      value: "\u5F00\u5C40\u63D0\u793A\u7BA1\u7406\u5668"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bf6bf5982149f1c4b93ba151c347216e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -513,3 +582,4 @@ SceneRoots:
   - {fileID: 1790295540}
   - {fileID: 4248384300048108892}
   - {fileID: 224624761}
+  - {fileID: 6562986152903755092}
