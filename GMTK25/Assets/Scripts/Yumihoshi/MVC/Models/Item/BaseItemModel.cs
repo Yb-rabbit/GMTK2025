@@ -18,6 +18,7 @@ namespace Yumihoshi.MVC.Models.Item
 
         protected override void OnInit()
         {
+            // TODO: 存档读取载入相关
         }
     }
 }
