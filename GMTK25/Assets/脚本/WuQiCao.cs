@@ -22,7 +22,7 @@ public class WuQiCao : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        id = InventoryManager.Instance.GetModel<InventoryModel>().Weapon.Value.itemId;
+        id = InventoryManager.Instance.GetModel<InventoryModel>().Weapon?.Value.itemId;
         if(mormal!=id)//ÎäÆ÷²»Í¬£¬»»ÎäÆ÷
         {
             mormal = id;
