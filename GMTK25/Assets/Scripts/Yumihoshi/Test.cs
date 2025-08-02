@@ -7,8 +7,11 @@
 // *****************************************************************************
 
 using System.Collections;
+using QFramework;
 using UnityEngine;
 using Yumihoshi.Entities;
+using Yumihoshi.Managers;
+using Yumihoshi.MVC.Models.Inventory;
 
 namespace Yumihoshi
 {
@@ -25,6 +28,8 @@ namespace Yumihoshi
         private IEnumerator Testt()
         {
             yield return new WaitForSeconds(3f);
+            string id = InventoryManager.Instance.GetModel<InventoryModel>()
+                .Weapon.Value.itemId;
         }
     }
 }
