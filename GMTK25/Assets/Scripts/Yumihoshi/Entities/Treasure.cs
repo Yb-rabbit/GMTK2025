@@ -52,6 +52,11 @@ namespace Yumihoshi.Entities
         {
             _animator.SetBool(OpenID, false);
         }
+        
+        public BaseItemData GetItemData()
+        {
+            return _itemData;
+        }
 
         /// <summary>
         /// 拾取宝箱物品
