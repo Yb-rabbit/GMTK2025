@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Yumihoshi/ManagerScene.unity
     guid: 74f5b36a1a67fe244babaf79ed44b423
+  - enabled: 1
+    path: "Assets/Scenes/\u6D4B\u8BD5.unity"
+    guid: 2ab30a41f2894c745b5852ffd7244630
+  - enabled: 1
+    path: Assets/Scenes/ifancy/MenuScene.unity
+    guid: 7ced72ca1576b2043811bf3b12508b66
   m_configObjects: {}

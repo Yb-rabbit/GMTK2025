@@ -6,14 +6,14 @@ public class WindowController : MonoBehaviour
     // 引用需要控制的窗口
     public GameObject targetWindow;
 
-    // 初始化时隐藏窗口（可选）
-    private void Start()
-    {
-        if (targetWindow != null)
-        {
-            targetWindow.SetActive(false);
-        }
-    }
+    //// 初始化时隐藏窗口（可选）
+    //private void Start()
+    //{
+    //    if (targetWindow != null)
+    //    {
+    //        targetWindow.SetActive(false);
+    //    }
+    //}
 
     // 显示窗口
     public void ShowWindow()
