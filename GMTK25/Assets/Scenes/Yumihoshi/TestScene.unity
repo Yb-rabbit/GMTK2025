@@ -926,6 +926,17 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1231288398 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1628517177063656132, guid: b9be815df675aaa46b71847ade844530, type: 3}
+  m_PrefabInstance: {fileID: 654753186835992273}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9751d11092b4e5d8c78770a9991ff86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1236029116
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f756ec2b5e540749c11d74211619ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TreasureTest: {fileID: 1231288398}
 --- !u!4 &1236029118
 Transform:
   m_ObjectHideFlags: 0

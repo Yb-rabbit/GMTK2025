@@ -7,11 +7,14 @@
 // *****************************************************************************
 
 using System.Collections.Generic;
+using System.Linq;
 using QFramework;
 using UnityEngine;
 using Yumihoshi.MVC.Apps;
 using Yumihoshi.MVC.Commands.Item;
+using Yumihoshi.MVC.Models.Item;
 using Yumihoshi.MVC.ViewControllers.Item;
+using Yumihoshi.SO.Item;
 using Yumihoshi.SO.Item.Consumable;
 using Yumihoshi.SO.Item.PassiveEquip;
 using Yumihoshi.SO.Item.Special;
@@ -22,25 +25,30 @@ namespace Yumihoshi.Managers
     public class ItemManager : HoshiVerseFramework.Base.Singleton<ItemManager>,
         IController
     {
-        private ConsumableController _consumableController;
-
-        private PassiveEquipController _passiveEquipController;
-
         // SO
         private ResLoader _resLoader = ResLoader.Allocate();
         private SpecialController _specialController;
 
         // Controller
         private WeaponController _weaponController;
+        private ConsumableController _consumableController;
+        private PassiveEquipController _passiveEquipController;
 
         public Dictionary<ItemCategory, ScriptableObject> ItemSoDict { get; } =
             new();
+
+        // Models
+        private ConsumableModel _consumableModel;
+        private PassiveEquipModel _passiveEquipModel;
+        private SpecialModel _specialModel;
+        private WeaponModel _weaponModel;
 
 
         protected override void Awake()
         {
             base.Awake();
             InitSo();
+            InitModels();
             InitControllers();
         }
 
@@ -82,6 +90,72 @@ namespace Yumihoshi.Managers
             this.SendCommand(new DecreaseItemStackCmd(category, name, amount));
         }
 
+        /// <summary>
+        /// 根据物品ID查找物品
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public BaseItemData FindItemById(string id)
+        {
+            // 遍历字典
+            foreach (ScriptableObject itemSo in ItemSoDict.Values)
+            {
+                switch (itemSo)
+                {
+                    // 如果是武器
+                    case WeaponSo weaponSo:
+                    {
+                        foreach (WeaponData data in
+                                 weaponSo.WeaponDataList.Where(data =>
+                                     data.itemId == id))
+                        {
+                            return data;
+                        }
+
+                        break;
+                    }
+                    // 如果是被动装备
+                    case PassiveEquipSo passiveEquipSo:
+                    {
+                        foreach (PassiveEquipData data in
+                                  passiveEquipSo.PassiveEquipDataList.Where(data =>
+                                     data.itemId == id))
+                        {
+                            return data;
+                        }
+
+                        break;
+                    }
+                    // 如果是消耗品
+                    case ConsumableSo consumableSo:
+                    {
+                        foreach (ConsumableData data in
+                                 consumableSo.ConsumableDataList.Where(data =>
+                                     data.itemId == id))
+                        {
+                            return data;
+                        }
+
+                        break;
+                    }
+                    // 如果是特殊物品
+                    case SpecialSo specialSo:
+                    {
+                        foreach (SpecialData data in
+                                 specialSo.SpecialDataList.Where(data =>
+                                     data.itemId == id))
+                        {
+                            return data;
+                        }
+                        break;
+                    }
+                }
+            }
+
+            Debug.LogWarning("未找到对应ID的物品: " + id);
+            return null;
+        }
+
         private void InitSo()
         {
             // TODO: 初始化资源kit（打包时记得调真机模式并重新打一次AB包，此TODO仅为提醒）
@@ -103,6 +177,15 @@ namespace Yumihoshi.Managers
             _passiveEquipController =
                 GetComponentInChildren<PassiveEquipController>();
             _specialController = GetComponentInChildren<SpecialController>();
+        }
+
+        private void InitModels()
+        {
+            // 获取模型
+            _consumableModel = this.GetModel<ConsumableModel>();
+            _passiveEquipModel = this.GetModel<PassiveEquipModel>();
+            _specialModel = this.GetModel<SpecialModel>();
+            _weaponModel = this.GetModel<WeaponModel>();
         }
     }
 }

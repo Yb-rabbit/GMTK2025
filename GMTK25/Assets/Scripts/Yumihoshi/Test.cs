@@ -7,16 +7,18 @@
 // *****************************************************************************
 
 using UnityEngine;
+using Yumihoshi.Entities;
 using Yumihoshi.Managers;
 
 namespace Yumihoshi
 {
     public class Test : MonoBehaviour
     {
+        public Treasure TreasureTest;
+        
         private void Start()
         {
-            ES3.Save("TestInt", 12345);
-            Debug.Log(LevelManager.Instance.LevelTreasureList.ConfigList[0].Config[0]);
+            Debug.Log(TreasureTest.PickUpTreasure().itemDesc);
         }
     }
 }
