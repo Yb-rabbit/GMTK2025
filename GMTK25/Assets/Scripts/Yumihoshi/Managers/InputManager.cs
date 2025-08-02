@@ -6,8 +6,6 @@
 // @description:
 // *****************************************************************************
 
-using System;
-using System.Collections;
 using HoshiVerseFramework.Base;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -24,9 +22,10 @@ namespace Yumihoshi.Managers
         [LabelText("按E球体碰撞盒半径")] [SerializeField]
         private float sphereCastRadius = 1.5f;
 
+        private Treasure _nearestTreasure;
+
         private GameObject _player;
         private ItemPickPanelUi _treasureItemInfoPanel;
-        private Treasure _nearestTreasure;
         private int _treasureLayer;
 
         private void Start()
@@ -59,14 +58,10 @@ namespace Yumihoshi.Managers
             Debug.Log("Open/Close Treasure");
             // 若信息面板存在，隐藏并关闭宝箱
             if (_treasureItemInfoPanel.gameObject.activeInHierarchy)
-            {
                 Close();
-            }
             // 若信息面板不存在，打开宝箱
             else
-            {
                 Open();
-            }
         }
 
         private void Open()

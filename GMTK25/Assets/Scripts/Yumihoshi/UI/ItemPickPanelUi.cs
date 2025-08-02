@@ -6,7 +6,6 @@
 // @description:
 // *****************************************************************************
 
-using System;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -17,11 +16,14 @@ namespace Yumihoshi.UI
 {
     public class ItemPickPanelUi : MonoBehaviour
     {
-        [Header("组件")]
-        [LabelText("物品图片")] [SerializeField] private Image itemImg;
+        [Header("组件")] [LabelText("物品图片")] [SerializeField]
+        private Image itemImg;
 
         [LabelText("物品名文本")] [SerializeField] private TextMeshProUGUI itemTmp;
-        [LabelText("物品描述文本")] [SerializeField] private TextMeshProUGUI itemDescTmp;
+
+        [LabelText("物品描述文本")] [SerializeField]
+        private TextMeshProUGUI itemDescTmp;
+
         [LabelText("拾取按钮")] [SerializeField] private Button pickBtn;
 
         private void Start()
@@ -37,7 +39,7 @@ namespace Yumihoshi.UI
         {
             itemImg.sprite = sprite;
         }
-        
+
         /// <summary>
         /// 设置物品名称
         /// </summary>
@@ -46,7 +48,7 @@ namespace Yumihoshi.UI
         {
             itemTmp.text = itemName;
         }
-        
+
         /// <summary>
         /// 设置物品描述
         /// </summary>

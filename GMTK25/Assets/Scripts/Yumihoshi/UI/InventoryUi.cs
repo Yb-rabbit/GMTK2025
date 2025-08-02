@@ -6,7 +6,6 @@
 // @description:
 // *****************************************************************************
 
-using System;
 using System.Collections.Generic;
 using QFramework;
 using Sirenix.OdinInspector;
@@ -35,6 +34,11 @@ namespace Yumihoshi.UI
                 .UnRegisterWhenGameObjectDestroyed(gameObject);
             InventoryManager.Instance.Weapon.Register(WeaponChanged)
                 .UnRegisterWhenGameObjectDestroyed(gameObject);
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return ItemApp.Interface;
         }
 
         private void WeaponChanged(WeaponData weaponData)
@@ -78,7 +82,7 @@ namespace Yumihoshi.UI
             spareItemImgs[index].sprite = sprite;
             spareItemImgs[index].color = Color.white;
         }
-        
+
         private void SetSpareItemSize(int count)
         {
             if (count > spareItemImgs.Count)
@@ -86,16 +90,12 @@ namespace Yumihoshi.UI
                 Debug.LogWarning("备用道具超过最大值");
                 return;
             }
+
             for (var i = 0; i < count; i++)
             {
                 spareItemImgs[i].gameObject.SetActive(true);
                 spareItemImgs[i].color = Color.clear;
             }
-        }
-
-        public IArchitecture GetArchitecture()
-        {
-            return ItemApp.Interface;
         }
     }
 }

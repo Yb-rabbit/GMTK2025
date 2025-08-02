@@ -10,6 +10,5 @@ namespace Yumihoshi.MVC.Events.Archive
 {
     public struct SaveEvent
     {
-        
     }
 }

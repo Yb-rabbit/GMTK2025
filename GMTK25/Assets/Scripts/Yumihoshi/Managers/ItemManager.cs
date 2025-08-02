@@ -25,23 +25,25 @@ namespace Yumihoshi.Managers
     public class ItemManager : HoshiVerseFramework.Base.Singleton<ItemManager>,
         IController
     {
-        // SO
-        private ResLoader _resLoader = ResLoader.Allocate();
-        private SpecialController _specialController;
-
-        // Controller
-        private WeaponController _weaponController;
         private ConsumableController _consumableController;
-        private PassiveEquipController _passiveEquipController;
-
-        public Dictionary<ItemCategory, ScriptableObject> ItemSoDict { get; } =
-            new();
 
         // Models
         private ConsumableModel _consumableModel;
+        private PassiveEquipController _passiveEquipController;
+
         private PassiveEquipModel _passiveEquipModel;
+
+        // SO
+        private ResLoader _resLoader = ResLoader.Allocate();
+        private SpecialController _specialController;
         private SpecialModel _specialModel;
+
+        // Controller
+        private WeaponController _weaponController;
         private WeaponModel _weaponModel;
+
+        public Dictionary<ItemCategory, ScriptableObject> ItemSoDict { get; } =
+            new();
 
 
         protected override void Awake()
@@ -99,7 +101,6 @@ namespace Yumihoshi.Managers
         {
             // 遍历字典
             foreach (ScriptableObject itemSo in ItemSoDict.Values)
-            {
                 switch (itemSo)
                 {
                     // 如果是武器
@@ -108,9 +109,7 @@ namespace Yumihoshi.Managers
                         foreach (WeaponData data in
                                  weaponSo.WeaponDataList.Where(data =>
                                      data.itemId == id))
-                        {
                             return data;
-                        }
 
                         break;
                     }
@@ -118,11 +117,10 @@ namespace Yumihoshi.Managers
                     case PassiveEquipSo passiveEquipSo:
                     {
                         foreach (PassiveEquipData data in
-                                  passiveEquipSo.PassiveEquipDataList.Where(data =>
-                                     data.itemId == id))
-                        {
+                                 passiveEquipSo.PassiveEquipDataList
+                                     .Where(data =>
+                                         data.itemId == id))
                             return data;
-                        }
 
                         break;
                     }
@@ -132,9 +130,7 @@ namespace Yumihoshi.Managers
                         foreach (ConsumableData data in
                                  consumableSo.ConsumableDataList.Where(data =>
                                      data.itemId == id))
-                        {
                             return data;
-                        }
 
                         break;
                     }
@@ -144,13 +140,10 @@ namespace Yumihoshi.Managers
                         foreach (SpecialData data in
                                  specialSo.SpecialDataList.Where(data =>
                                      data.itemId == id))
-                        {
                             return data;
-                        }
                         break;
                     }
                 }
-            }
 
             Debug.LogWarning("未找到对应ID的物品: " + id);
             return null;

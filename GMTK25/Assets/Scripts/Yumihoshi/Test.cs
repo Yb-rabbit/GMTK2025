@@ -9,8 +9,6 @@
 using System.Collections;
 using UnityEngine;
 using Yumihoshi.Entities;
-using Yumihoshi.Managers;
-using Yumihoshi.UI;
 
 namespace Yumihoshi
 {
@@ -27,7 +25,6 @@ namespace Yumihoshi
         private IEnumerator Testt()
         {
             yield return new WaitForSeconds(3f);
-            
         }
     }
 }

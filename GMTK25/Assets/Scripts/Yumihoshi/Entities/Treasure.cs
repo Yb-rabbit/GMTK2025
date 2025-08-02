@@ -6,15 +6,11 @@
 // @description:
 // *****************************************************************************
 
-using System;
-using System.Collections;
 using QFramework;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using Yumihoshi.Managers;
 using Yumihoshi.MVC.Apps;
 using Yumihoshi.MVC.Commands.Item;
-using Yumihoshi.MVC.Models.Item;
 using Yumihoshi.SO.Item;
 
 namespace Yumihoshi.Entities
@@ -23,8 +19,8 @@ namespace Yumihoshi.Entities
     {
         private static readonly int OpenID = Animator.StringToHash("Open");
         private Animator _animator;
-        private string _itemId;
         private BaseItemData _itemData;
+        private string _itemId;
 
         private void Awake()
         {
@@ -37,6 +33,11 @@ namespace Yumihoshi.Entities
             _itemData = ItemManager.Instance.FindItemById(_itemId);
         }
 
+        public IArchitecture GetArchitecture()
+        {
+            return ItemApp.Interface;
+        }
+
         /// <summary>
         /// 打开宝箱
         /// </summary>
@@ -44,7 +45,7 @@ namespace Yumihoshi.Entities
         {
             _animator.SetBool(OpenID, true);
         }
-        
+
         /// <summary>
         /// 关闭宝箱
         /// </summary>
@@ -52,7 +53,7 @@ namespace Yumihoshi.Entities
         {
             _animator.SetBool(OpenID, false);
         }
-        
+
         public BaseItemData GetItemData()
         {
             return _itemData;
@@ -70,11 +71,6 @@ namespace Yumihoshi.Entities
             this.SendCommand(new AddItemStackCmd(_itemData.ItemType,
                 _itemData.itemName));
             return _itemData;
-        }
-
-        public IArchitecture GetArchitecture()
-        {
-            return ItemApp.Interface;
         }
     }
 }

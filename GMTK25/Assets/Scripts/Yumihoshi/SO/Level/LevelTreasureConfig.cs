@@ -12,10 +12,10 @@ using UnityEngine;
 
 namespace Yumihoshi.SO.Level
 {
-    [CreateAssetMenu(fileName = "NewLevelTreasureConfig", menuName = "关卡/新建关卡物品库配置", order = 0)]
+    [CreateAssetMenu(fileName = "NewLevelTreasureConfig",
+        menuName = "关卡/新建关卡物品库配置", order = 0)]
     public class LevelTreasureConfig : ScriptableObject
     {
-        [LabelText("关卡物品库配置（id）")]
-        public List<string> Config;
+        [LabelText("关卡物品库配置（id）")] public List<string> Config;
     }
 }
