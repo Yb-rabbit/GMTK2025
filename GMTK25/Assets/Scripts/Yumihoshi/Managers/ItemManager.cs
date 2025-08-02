@@ -48,8 +48,8 @@ namespace Yumihoshi.Managers
         {
             base.Awake();
             InitSo();
-            InitModels();
             InitControllers();
+            InitModels();
         }
 
         protected override void OnDestroy()

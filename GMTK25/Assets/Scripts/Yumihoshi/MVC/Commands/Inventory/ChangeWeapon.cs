@@ -15,17 +15,17 @@ namespace Yumihoshi.MVC.Commands.Inventory
 {
     public class ChangeWeapon : AbstractCommand
     {
-        private readonly InventoryModel _model;
         private readonly WeaponData _weaponData;
+        private InventoryModel _model;
 
         public ChangeWeapon(WeaponData weaponData)
         {
             _weaponData = weaponData;
-            _model = this.GetModel<InventoryModel>();
         }
 
         protected override void OnExecute()
         {
+            _model = this.GetModel<InventoryModel>();
             _model.Weapon.Value = _weaponData;
             this.SendEvent(new WeaponChangedEvent
             {

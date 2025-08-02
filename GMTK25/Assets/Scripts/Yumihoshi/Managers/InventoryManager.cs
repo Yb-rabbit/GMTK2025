@@ -7,12 +7,14 @@
 // *****************************************************************************
 
 using QFramework;
+using Yumihoshi.MVC.Apps;
 using Yumihoshi.SO.Inventory;
 
 namespace Yumihoshi.Managers
 {
     public class
-        InventoryManager : HoshiVerseFramework.Base.Singleton<InventoryManager>
+        InventoryManager : HoshiVerseFramework.Base.Singleton<InventoryManager>,
+        IController
     {
         private ResLoader _resLoader = ResLoader.Allocate();
         public InventoryConfig InventoryConfigSo { get; private set; }
@@ -30,6 +32,11 @@ namespace Yumihoshi.Managers
             if (_resLoader == null) return;
             _resLoader.Recycle2Cache();
             _resLoader = null;
+        }
+
+        public IArchitecture GetArchitecture()
+        {
+            return InventoryApp.Interface;
         }
     }
 }

@@ -13,7 +13,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Yumihoshi.Entities;
 using Yumihoshi.MVC.Commands.Inventory;
-using Yumihoshi.MVC.ViewControllers.Inventory;
 using Yumihoshi.SO.Item;
 using Yumihoshi.SO.Item.Weapon;
 using Yumihoshi.UI;
@@ -25,8 +24,6 @@ namespace Yumihoshi.Managers
         [LabelText("按E球体碰撞盒半径")] [SerializeField]
         private float sphereCastRadius = 1.5f;
 
-        private InventoryController _inventoryController;
-
         private Treasure _nearestTreasure;
 
         private GameObject _player;
@@ -35,7 +32,6 @@ namespace Yumihoshi.Managers
 
         private void Start()
         {
-            // TODO: 获取inventorycontroller
             _treasureLayer = LayerMask.GetMask("Treasure");
             _treasureItemInfoPanel =
                 GameObject.FindWithTag("TreasureItemInfoPanel")
@@ -51,7 +47,7 @@ namespace Yumihoshi.Managers
                 case ItemCategory.None:
                     break;
                 case ItemCategory.Weapon:
-                    _inventoryController.SendCommand(
+                    InventoryManager.Instance.SendCommand(
                         new ChangeWeapon(
                             _nearestTreasure.GetItemData() as WeaponData));
                     break;
@@ -130,7 +126,7 @@ namespace Yumihoshi.Managers
         private void SetItemUI()
         {
             BaseItemData itemData = _nearestTreasure.GetItemData();
-            _treasureItemInfoPanel.SetItemImg(itemData.itemIcon);
+            _treasureItemInfoPanel.SetItemImg(itemData.itemBigIcon);
             _treasureItemInfoPanel.SetItemName(itemData.itemName);
             _treasureItemInfoPanel.SetItemDesc(itemData.itemDesc);
         }

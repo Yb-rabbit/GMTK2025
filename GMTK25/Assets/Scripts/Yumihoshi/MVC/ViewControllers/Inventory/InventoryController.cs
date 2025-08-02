@@ -7,11 +7,12 @@
 // *****************************************************************************
 
 using QFramework;
+using UnityEngine;
 using Yumihoshi.MVC.Apps;
 
 namespace Yumihoshi.MVC.ViewControllers.Inventory
 {
-    public class InventoryController : IController
+    public class InventoryController : MonoBehaviour, IController
     {
         public IArchitecture GetArchitecture()
         {

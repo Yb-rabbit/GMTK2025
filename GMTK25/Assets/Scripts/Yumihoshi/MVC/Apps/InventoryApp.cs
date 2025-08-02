@@ -7,6 +7,8 @@
 // *****************************************************************************
 
 using QFramework;
+using Yumihoshi.MVC.Models.Inventory;
+using Yumihoshi.Utility;
 
 namespace Yumihoshi.MVC.Apps
 {
@@ -14,6 +16,8 @@ namespace Yumihoshi.MVC.Apps
     {
         protected override void Init()
         {
+            RegisterUtility(new Storage());
+            RegisterModel(new InventoryModel());
         }
     }
 }

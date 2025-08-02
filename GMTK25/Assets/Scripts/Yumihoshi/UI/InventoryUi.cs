@@ -11,12 +11,13 @@ using QFramework;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
-using Yumihoshi.MVC.Apps;
+using Yumihoshi.Managers;
+using Yumihoshi.MVC.Models.Inventory;
 using Yumihoshi.SO.Item.Weapon;
 
 namespace Yumihoshi.UI
 {
-    public class InventoryUi : MonoBehaviour, IController
+    public class InventoryUi : MonoBehaviour
     {
         [Header("Img组件")] [LabelText("手持物UI")] [SerializeField]
         private Image weaponImg;
@@ -28,17 +29,13 @@ namespace Yumihoshi.UI
         private void Start()
         {
             // 注册事件
-            // TODO: 解开注释
-            // InventoryManager.Instance.CurActiveSpareItemSize
-            //     .RegisterWithInitValue(SetSpareItemSize)
-            //     .UnRegisterWhenGameObjectDestroyed(gameObject);
-            // InventoryManager.Instance.Weapon.Register(WeaponChanged)
-            //     .UnRegisterWhenGameObjectDestroyed(gameObject);
-        }
-
-        public IArchitecture GetArchitecture()
-        {
-            return ItemApp.Interface;
+            InventoryManager.Instance.GetModel<InventoryModel>()
+                .CurActiveSpareItemSize
+                .RegisterWithInitValue(SetSpareItemSize)
+                .UnRegisterWhenGameObjectDestroyed(gameObject);
+            InventoryManager.Instance.GetModel<InventoryModel>().Weapon
+                .Register(WeaponChanged)
+                .UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 
         private void WeaponChanged(WeaponData weaponData)
