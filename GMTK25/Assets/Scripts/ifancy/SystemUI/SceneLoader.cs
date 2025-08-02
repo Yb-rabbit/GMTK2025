@@ -1,37 +1,39 @@
+using QFramework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    // Í¨¹ý³¡¾°Ãû³Æ¼ÓÔØ³¡¾°
+    // Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½Ø³ï¿½ï¿½ï¿½
     public void LoadSceneByName(string sceneName)
     {
-        // ¼ì²é³¡¾°ÊÇ·ñÔÚBuild SettingsÖÐ
+        // ï¿½ï¿½é³¡ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Build Settingsï¿½ï¿½
         if (IsSceneInBuildSettings(sceneName))
         {
-            SceneManager.LoadScene(sceneName);
+            ActionKit.ScreenTransition.FadeInOut()
+                .OnInFinish(() => SceneManager.LoadScene(sceneName)).Start(this);
         }
         else
         {
-            Debug.LogError($"³¡¾° {sceneName} ²»ÔÚBuild SettingsÖÐ£¬ÇëÌí¼ÓºóÔÙÊÔ£¡");
+            Debug.LogError($"ï¿½ï¿½ï¿½ï¿½ {sceneName} ï¿½ï¿½ï¿½ï¿½Build Settingsï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½Óºï¿½ï¿½ï¿½ï¿½Ô£ï¿½");
         }
     }
 
-    // Í¨¹ý³¡¾°Ë÷Òý¼ÓÔØ³¡¾°
+    // Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½
     public void LoadSceneByIndex(int sceneIndex)
     {
-        // ¼ì²é³¡¾°Ë÷ÒýÊÇ·ñÓÐÐ§
+        // ï¿½ï¿½é³¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ð§
         if (sceneIndex >= 0 && sceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(sceneIndex);
         }
         else
         {
-            Debug.LogError($"³¡¾°Ë÷Òý {sceneIndex} ÎÞÐ§£¡");
+            Debug.LogError($"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ {sceneIndex} ï¿½ï¿½Ð§ï¿½ï¿½");
         }
     }
 
-    // ¼ì²é³¡¾°ÊÇ·ñÔÚBuild SettingsÖÐ
+    // ï¿½ï¿½é³¡ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Build Settingsï¿½ï¿½
     private bool IsSceneInBuildSettings(string sceneName)
     {
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
