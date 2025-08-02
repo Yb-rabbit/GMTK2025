@@ -14,6 +14,8 @@ public class create : MonoBehaviour
     public Canvas canvas;
     public Animator anim,anim1;
     public SpriteRenderer sp1, sp2;
+    public GameObject gongjidian;
+    float distence;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,8 @@ public class create : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        distence= Vector3.Distance(transform.position, target.transform.position);
+        if(distence>0.5f)
         transform.LookAt(target);
         if (Input.GetKeyUp(KeyCode.A)|| Input.GetKeyUp(KeyCode.D)|| Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.W))
         {
@@ -33,6 +37,7 @@ public class create : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             anim.SetBool("move", true);
+            gongjidian.transform.localRotation = Quaternion.Euler(gongjidian.transform.localRotation.x, 180, gongjidian.transform.localRotation.z);
             anim1.SetBool("move", true);
             sp1.enabled = false;
             sp2.enabled = true;
@@ -49,6 +54,7 @@ public class create : MonoBehaviour
         {
             anim.SetBool("move", true);
             anim1.SetBool("move", true);
+            gongjidian.transform.localRotation = Quaternion.Euler(gongjidian.transform.localRotation.x, 0, gongjidian.transform.localRotation.z);
             sp1.enabled = true;
             sp2.enabled = false;
             /*if (Input.GetKey(KeyCode.S))

@@ -5,14 +5,18 @@ using UnityEngine;
 public class eneAtt : MonoBehaviour
 {
     public float shanghai = 0;
-    bool CanAtt;//为真时可以攻击
+    public bool CanAtt;//为真时可以攻击
     public float AttTime=2;
     float time;
     GameObject player;
+    public Animator anim1, anim2;
+    eneHP hp;
     // Start is called before the first frame update
     void Start()
     {
+        hp=GetComponent< eneHP>();
         time = AttTime;
+        player = GameObject.Find("cat");
     }
 
     // Update is called once per frame
@@ -24,6 +28,8 @@ public class eneAtt : MonoBehaviour
             if(time < 0)
             {
                 hp hpp = player.gameObject.GetComponent<hp>();
+                anim1.SetTrigger("attack");
+                anim2.SetTrigger("attack");
                 hpp.GetAtted(shanghai);
                 time = AttTime;
                 CanAtt = false;
@@ -39,11 +45,11 @@ public class eneAtt : MonoBehaviour
 
         }
     }*/
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            player = other.gameObject;
+           // player = other.gameObject;
             CanAtt = true;
 
         }
@@ -60,5 +66,21 @@ public class eneAtt : MonoBehaviour
             }
         }
     }
- 
+    public void Attack()
+    {
+        if (hp.hp > 0)
+        {
+            hp hpp = player.gameObject.GetComponent<hp>();
+            hpp.GetAtted(shanghai);
+        }
+    }
+    /*public void attDiaoYong()
+    {
+        hp hpp = player.gameObject.GetComponent<hp>();
+        anim1.SetTrigger("attack");
+        anim2.SetTrigger("attack");
+        hpp.GetAtted(shanghai);
+        time = AttTime;
+        CanAtt = false;
+    }*/
 }
