@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class hp : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class hp : MonoBehaviour
     float time;
     public camShark camshark;
     public Animator anim,anim1;
+    public float PingZhang;
+    float ShenYu;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,9 @@ public class hp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(PingZhang);
+        if(transform.position.y<-20)
+            SceneManager.LoadScene(3);
         if (HP < 0)
         {
             anim.SetBool("die", true);
@@ -40,12 +46,20 @@ public class hp : MonoBehaviour
         if (gameObject.tag =="Player")
         {
             camshark.StartZhen();
-            HP -= shanghai;
-            wudi = true;
-            time = wudiTim;
-            anim.Play("hurt");
-            anim1.Play("hurt");
-            gameObject.tag = "Untagged";
+            ShenYu = PingZhang - shanghai;
+            PingZhang = ShenYu;
+            if (PingZhang < 0)
+                PingZhang = 0;
+            if(ShenYu<0)
+            {
+                HP += ShenYu;
+                wudi = true;
+                time = wudiTim;
+                anim.Play("hurt");
+                anim1.Play("hurt");
+                gameObject.tag = "Untagged";
+            }
+            
         }
     }
 }

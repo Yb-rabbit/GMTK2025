@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 698576856903658609}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.23, y: 0, z: 0}
+  m_LocalPosition: {x: 0.45, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -290,6 +290,7 @@ MonoBehaviour:
   attack: {fileID: 5341934631109234033}
   ShangHaiKuang: {fileID: 449056140759448548}
   KuangPos: {fileID: 698576856903658609}
+  PingZhang: 15
 --- !u!1 &5341934631109234033
 GameObject:
   m_ObjectHideFlags: 0
