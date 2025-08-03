@@ -1,7 +1,9 @@
+using QFramework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Yumihoshi.Managers;
 
 public class hp : MonoBehaviour
 {
@@ -34,6 +36,13 @@ public class hp : MonoBehaviour
         {
             anim.SetBool("die", true);
             anim1.SetBool("die", true);
+        }
+        else
+        {
+            if(Input.GetMouseButtonDown(1))
+            {
+               // InventoryManager.Instance.SendCommand
+            }
         }
         if (wudi)
         {

@@ -741,7 +741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &118396010
 Transform:
   m_ObjectHideFlags: 0
@@ -8408,7 +8408,6 @@ MonoBehaviour:
   - {fileID: 1663912997}
   - {fileID: 1176082679}
   - {fileID: 790381671}
-  - {fileID: 0}
   StartPoint:
   - {fileID: 806541630}
   - {fileID: 1733992375}
@@ -10344,7 +10343,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7078288913696217013, guid: a1e7f0dd6e4f7f4479ef930054260d48, type: 3}
       propertyPath: time
-      value: 3
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 8199760389268814769, guid: a1e7f0dd6e4f7f4479ef930054260d48, type: 3}
       propertyPath: m_Name
@@ -11036,7 +11035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1733992376
 Transform:
   m_ObjectHideFlags: 0
@@ -13606,6 +13605,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7078288913696217013, guid: a1e7f0dd6e4f7f4479ef930054260d48, type: 3}
+      propertyPath: time
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8199760389268814769, guid: a1e7f0dd6e4f7f4479ef930054260d48, type: 3}
       propertyPath: m_Name
       value: "\u5237\u602A\u70B9(\u7EFF\uFF09"
