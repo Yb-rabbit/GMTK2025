@@ -10,9 +10,9 @@ using Yumihoshi.SO.Item.Weapon;
 public class WuQiCao : MonoBehaviour
 {
     string id;
-    string mormal;//¼ÇÂ¼ÉÏÒ»¸öid
+    string mormal;//ï¿½ï¿½Â¼ï¿½ï¿½Ò»ï¿½ï¿½id
     public GameObject[] wuqi;
-    int i;//iÎªÒª¸ü»»µÄÎäÆ÷µÄ±àºÅ
+    int i;//iÎªÒªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +22,9 @@ public class WuQiCao : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        id = InventoryManager.Instance.GetModel<InventoryModel>().Weapon?.Value.itemId;
-        if(mormal!=id)//ÎäÆ÷²»Í¬£¬»»ÎäÆ÷
+        if (InventoryManager.Instance.GetModel<InventoryModel>().Weapon.Value == null) return;
+        id = InventoryManager.Instance.GetModel<InventoryModel>().Weapon.Value.itemId;
+        if(mormal!=id)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         {
             mormal = id;
             switch (id)
@@ -39,23 +40,23 @@ public class WuQiCao : MonoBehaviour
                     i = 3; break;
 
             }
-            // Ïú»ÙËùÓÐÏÖÓÐ×ÓÎïÌå
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             foreach (Transform child in transform)
             {
                 Destroy(child.gameObject);
             }
 
-            // »òÕßÔÚ±à¼­Æ÷ÖÐÊ¹ÓÃÁ¢¼´Ïú»Ù
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ú±à¼­ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             // while (transform.childCount > 0)
             // {
             //     DestroyImmediate(transform.GetChild(0).gameObject);
             // }
 
-            // ´´½¨ÐÂµÄ×ÓÎïÌåD
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D
             if (wuqi[i] != null)
             {
                 GameObject newChild = Instantiate(wuqi[i], transform);
-                newChild.transform.localPosition = Vector3.zero; // Óë¸¸ÎïÌå×ø±êÏàÍ¬
+                newChild.transform.localPosition = Vector3.zero; // ï¿½ë¸¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬
                 newChild.transform.localRotation = Quaternion.identity;
                 newChild.transform.localScale = Vector3.one;
             }

@@ -23,9 +23,10 @@ namespace Yumihoshi.Entities
             get => levelIndex;
             set => levelIndex = value;
         }
-        
-        [LabelText("物品库设置（关卡数量）")] [SerializeField] private int levelIndex;
-        
+
+        [LabelText("物品库设置（关卡数量）")] [SerializeField]
+        private int levelIndex;
+
         private static readonly int OpenID = Animator.StringToHash("Open");
         private Animator _animator;
         private BaseItemData _itemData;
