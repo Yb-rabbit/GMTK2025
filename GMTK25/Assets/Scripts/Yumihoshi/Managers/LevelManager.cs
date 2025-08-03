@@ -44,6 +44,11 @@ namespace Yumihoshi.Managers
                 _usedItemIds.Add(new List<string>());
         }
 
+        private void Start()
+        {
+            GameManager.Instance.OnReloadGameEvent.AddListener(Reset);
+        }
+
         protected override void OnDestroy()
         {
             base.OnDestroy();

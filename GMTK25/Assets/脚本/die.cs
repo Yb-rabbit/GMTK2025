@@ -22,7 +22,7 @@ public class die : MonoBehaviour
     public void died()
     {
         Debug.Log("123");
-      //  GameManager.Instance.OnReloadGameEvent.Invoke();
+        GameManager.Instance.OnReloadGameEvent.Invoke();
         Scene currentScene = SceneManager.GetActiveScene();
 
         // ���¼��ص�ǰ����
