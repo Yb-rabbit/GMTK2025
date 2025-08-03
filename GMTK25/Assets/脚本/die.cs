@@ -11,7 +11,7 @@ public class die : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //GameManager.Instance.OnReloadGameEvent.Invoke();
     }
 
     // Update is called once per frame
@@ -21,7 +21,8 @@ public class die : MonoBehaviour
     }
     public void died()
     {
-        GameManager.Instance.OnReloadGameEvent.Invoke();
+        Debug.Log("123");
+      //  GameManager.Instance.OnReloadGameEvent.Invoke();
         Scene currentScene = SceneManager.GetActiveScene();
 
         // ���¼��ص�ǰ����
