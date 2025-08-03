@@ -45,6 +45,10 @@ namespace Yumihoshi.MVC.Commands.Inventory
                 {
                     _model.ItemInHand.Value.AddStack(
                         _itemData.currentStackCount);
+                    this.SendEvent(new ItemInHandChangedEvent
+                    {
+                        newItem = _model.ItemInHand.Value
+                    });
                     return;
                 }
                 var existSpare = false;

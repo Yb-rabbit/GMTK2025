@@ -46,8 +46,8 @@ namespace Yumihoshi.Managers
 
         public void Reset()
         {
-            _model.Weapon.Value.currentStackCount = 0;
-            _model.Weapon.Value = null;
+            // _model.Weapon.Value.currentStackCount = 0;
+            // _model.Weapon.Value = null;
             _model.ItemInHand.Value.currentStackCount = 0;
             _model.ItemInHand.Value = null;
             for (int i = 0; i < _model.SpareItems.Count; i++)

@@ -9,6 +9,7 @@
 using System.Collections.Generic;
 using QFramework;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Yumihoshi.Managers;
@@ -25,8 +26,12 @@ namespace Yumihoshi.UI
         private Image weaponImg;
 
         [LabelText("手持道具UI")] [SerializeField] private Image itemInHandImg;
+        [LabelText("手持道具堆叠文本")] [SerializeField]
+        private TextMeshProUGUI itemInHandStackTmp;
 
         [LabelText("备用道具")] [SerializeField] private List<Image> spareItemImgs;
+        [LabelText("备用道具堆叠文本")] [SerializeField]
+        private List<TextMeshProUGUI> spareItemStackTmps;
 
         private void Start()
         {
@@ -39,8 +44,7 @@ namespace Yumihoshi.UI
             model.Weapon
                 .Register(WeaponChanged)
                 .UnRegisterWhenGameObjectDestroyed(gameObject);
-            model.ItemInHand.Register(ItemInHandChanged)
-                .UnRegisterWhenGameObjectDestroyed(gameObject);
+            InventoryManager.Instance.RegisterEvent<ItemInHandChangedEvent>(HandleItemInHandChanged);
             InventoryManager.Instance.RegisterEvent<SpareItemChangedEvent>(
                 SpareItemChanged);
         }
@@ -48,8 +52,26 @@ namespace Yumihoshi.UI
         private void SpareItemChanged(SpareItemChangedEvent e)
         {
             for (var i = 0; i < e.newSpareItems.Count; i++)
+            {
                 if (e.newSpareItems[i] != null)
+                {
                     SetSpareItemImg(i, e.newSpareItems[i].itemIcon);
+                    if (e.newSpareItems[i].currentStackCount > 1)
+                    {
+                        spareItemStackTmps[i].text =
+                            e.newSpareItems[i].currentStackCount.ToString();
+                        spareItemStackTmps[i].gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        spareItemStackTmps[i].gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    spareItemStackTmps[i].gameObject.SetActive(false);
+                }
+            }
         }
 
         private void WeaponChanged(WeaponData weaponData)
@@ -57,15 +79,26 @@ namespace Yumihoshi.UI
             SetWeaponImg(weaponData.itemIcon);
         }
 
-        private void ItemInHandChanged(BaseItemData itemData)
+        private void HandleItemInHandChanged(ItemInHandChangedEvent e)
         {
+            BaseItemData itemData = e.newItem;
             if (itemData == null)
             {
                 itemInHandImg.gameObject.SetActive(false);
+                itemInHandStackTmp.gameObject.SetActive(false);
                 return;
             }
 
             SetItemInHandImg(itemData.itemIcon);
+            if (itemData.currentStackCount > 1)
+            {
+                itemInHandStackTmp.text = itemData.currentStackCount.ToString();
+                itemInHandStackTmp.gameObject.SetActive(true);
+            }
+            else
+            {
+                itemInHandStackTmp.gameObject.SetActive(false);
+            }
         }
 
         /// <summary>

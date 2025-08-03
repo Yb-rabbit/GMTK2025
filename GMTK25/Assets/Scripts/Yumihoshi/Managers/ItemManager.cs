@@ -78,9 +78,9 @@ namespace Yumihoshi.Managers
                     // 如果是武器
                     case WeaponSo weaponSo:
                     {
-                        foreach (WeaponData data in
-                                 weaponSo.WeaponDataList)
-                            data.currentStackCount = 0;
+                        // foreach (WeaponData data in
+                        //          weaponSo.WeaponDataList)
+                        //     data.currentStackCount = 0;
 
                         break;
                     }
