@@ -17,7 +17,8 @@ public class SceneLoader : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"���� {sceneName} ����Build Settings�У�����Ӻ����ԣ�");
+            Debug.LogError(
+                $"���� {sceneName} ����Build Settings�У�����Ӻ����ԣ�");
         }
     }
 
@@ -25,7 +26,8 @@ public class SceneLoader : MonoBehaviour
     public void LoadSceneByIndex(int sceneIndex)
     {
         // ��鳡�������Ƿ���Ч
-        if (sceneIndex >= 0 && sceneIndex < SceneManager.sceneCountInBuildSettings)
+        if (sceneIndex >= 0 &&
+            sceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(sceneIndex);
         }
@@ -46,6 +48,7 @@ public class SceneLoader : MonoBehaviour
                 return true;
             }
         }
+
         return false;
     }
 }

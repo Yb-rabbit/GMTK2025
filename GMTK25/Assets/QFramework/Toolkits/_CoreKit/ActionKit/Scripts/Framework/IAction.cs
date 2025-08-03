@@ -181,7 +181,7 @@ namespace QFramework
             var controller = ActionController.Allocate();
             controller.ActionID = self.ActionID;
             controller.Action = self;
-            controller.UpdateMode = ActionUpdateModes.ScaledDeltaTime;
+            controller.UpdateMode = ActionUpdateModes.UnscaledDeltaTime;
             monoBehaviour.ExecuteByUpdate(self, controller, onFinish);
             return controller;
         }
@@ -192,7 +192,7 @@ namespace QFramework
             var controller = ActionController.Allocate();
             controller.ActionID = self.ActionID;
             controller.Action = self;
-            controller.UpdateMode = ActionUpdateModes.ScaledDeltaTime;
+            controller.UpdateMode = ActionUpdateModes.UnscaledDeltaTime;
             monoBehaviour.ExecuteByUpdate(self, controller, _ => onFinish());
             return controller;
         }
