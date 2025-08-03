@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -19,7 +20,9 @@ public class youxikongzhi : MonoBehaviour
     public float jishi;
     public Canvas canvas;
     public Image tiao;
+    bool only = true;
     public GameObject islandPoint;//²úµºµã
+    public UnityEvent OnReload { get; private set; } = new();
     // Start is called before the first frame update
     void Start()
     {
@@ -46,8 +49,13 @@ public class youxikongzhi : MonoBehaviour
             {
                 if (time < 50/7)
                 {
-                    GameObject newobj= Instantiate(island[i], islandPoint.transform.position, Quaternion.identity);
-                    isa=newobj.GetComponent<island>();
+                    if (only)
+                    {
+                        only = false;
+                        OnReload.Invoke();
+                        GameObject newobj = Instantiate(island[i], islandPoint.transform.position, Quaternion.identity);
+                        isa = newobj.GetComponent<island>();
+                    }
                 }
             }
             if(time<0)
@@ -59,6 +67,7 @@ public class youxikongzhi : MonoBehaviour
                 }
                 else
                 {
+                    only=true;
                     time = timer;
                     CanStart = false;
                     jishi = 0;
