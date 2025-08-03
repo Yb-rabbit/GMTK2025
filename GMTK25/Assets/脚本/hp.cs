@@ -1,3 +1,4 @@
+using System;
 using QFramework;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,10 +6,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Yumihoshi.Managers;
 using Yumihoshi.MVC.Models.Inventory;
+using UnityEngine.Rendering;
 
 public class hp : MonoBehaviour
 {
-    public float HP = 5;
+    [SerializeField] private float _hp = 100f;
+    public BindableProperty<float> HP = new();
+    
     bool wudi = false;
     public float wudiTim = 0.5f;
     float time;
@@ -20,33 +24,39 @@ public class hp : MonoBehaviour
     float max;
     int curStack;
     float FreshTime;//³ÖÐø»ØÑªÊ±¼ä
+
+    private void Awake()
+    {
+        HP.Value = _hp;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         time = wudiTim;
-        max = HP;
+        max = HP.Value;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (HP > max)
-            HP = max;
+        if (HP.Value > max)
+            HP.Value = max;
         Debug.Log(HP);
         if(FreshTime > 0)
         {
             FreshTime-=Time.deltaTime;
-            HP += 5 * Time.deltaTime;
+            HP.Value += 5 * Time.deltaTime;
         }
         Debug.Log(PingZhang);
         if (transform.position.y < -20)
         {
             Scene currentScene = SceneManager.GetActiveScene();
 
-            // ÖØÐÂ¼ÓÔØµ±Ç°³¡¾°
+            // ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Øµï¿½Ç°ï¿½ï¿½ï¿½ï¿½
             SceneManager.LoadScene(currentScene.name);
         }
-        if (HP < 0)
+        if (HP.Value < 0)
         {
             anim.SetBool("die", true);
             anim1.SetBool("die", true);
@@ -68,7 +78,7 @@ public class hp : MonoBehaviour
                     switch (id)
                     {
                         case "301":
-                            HP += 50;
+                            HP.Value += 50;
                             break;
                         case "302":
                             FreshTime = 12f;
@@ -93,7 +103,7 @@ public class hp : MonoBehaviour
             }
         }
     }
-    public void GetAtted(float shanghai)//ÊÜµ½ÉËº¦
+    public void GetAtted(float shanghai)//ï¿½Üµï¿½ï¿½Ëºï¿½
     {
         if (gameObject.tag =="Player")
         {
@@ -104,7 +114,7 @@ public class hp : MonoBehaviour
                 PingZhang = 0;
             if(ShenYu<0)
             {
-                HP += ShenYu;
+                HP.Value += ShenYu;
                 wudi = true;
                 time = wudiTim;
                 anim.Play("hurt");
