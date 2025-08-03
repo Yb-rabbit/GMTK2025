@@ -33,7 +33,7 @@ RectTransform:
   m_Father: {fileID: 2273443752135535305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -770,7 +770,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 168.6, y: -84.9}
+  m_AnchoredPosition: {x: 168.6, y: -94}
   m_SizeDelta: {x: 96, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7597087949072852937
@@ -1170,7 +1170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 127, y: -5.81}
+  m_AnchoredPosition: {x: 127, y: -8.16}
   m_SizeDelta: {x: 221.1325, y: 143.3103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7313979829207007203
@@ -1213,8 +1213,9 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "WASD \u2013 move  \r\n\nE \u2013 open boxes  \r\n\nClick \u2013 attack"
+    m_LineSpacing: 1.58
+  m_Text: "WASD \u2013 move  \r\nE \u2013 open boxes  \r\nL Click \u2013 attack\nR
+    Click - treat"
 --- !u!1 &4841706407845387812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,7 +1591,7 @@ RectTransform:
   m_Father: {fileID: 246745926555969309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
