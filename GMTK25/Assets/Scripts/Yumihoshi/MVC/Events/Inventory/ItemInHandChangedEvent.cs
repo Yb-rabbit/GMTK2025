@@ -13,6 +13,5 @@ namespace Yumihoshi.MVC.Events.Inventory
     public struct ItemInHandChangedEvent
     {
         public BaseItemData newItem;
-        public BaseItemData oldItem;
     }
 }

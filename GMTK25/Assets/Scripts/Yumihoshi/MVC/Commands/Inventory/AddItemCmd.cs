@@ -33,7 +33,6 @@ namespace Yumihoshi.MVC.Commands.Inventory
                 this.SendEvent(new ItemInHandChangedEvent
                 {
                     newItem = _itemData,
-                    oldItem = _model.ItemInHand.Value
                 });
                 _model.ItemInHand.Value = _itemData;
             }
