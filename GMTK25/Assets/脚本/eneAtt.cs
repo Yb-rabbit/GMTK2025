@@ -22,19 +22,19 @@ public class eneAtt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(CanAtt)
+       /*if(CanAtt)
         {
             time-=Time.deltaTime;
             if(time < 0)
             {
-                hp hpp = player.gameObject.GetComponent<hp>();
+                //hp hpp = player.gameObject.GetComponent<hp>();
                 anim1.SetTrigger("attack");
                 anim2.SetTrigger("attack");
-                hpp.GetAtted(shanghai);
+             //   hpp.GetAtted(shanghai);
                 time = AttTime;
                 CanAtt = false;
             }
-        }
+        }*/
     }
   /*  private void OnTriggerEnter(Collider other)
     {
@@ -73,6 +73,11 @@ public class eneAtt : MonoBehaviour
             hp hpp = player.gameObject.GetComponent<hp>();
             hpp.GetAtted(shanghai);
         }
+    }
+    public void StartAtt()
+    {
+        anim1.SetTrigger("attack");
+        anim2.SetTrigger("attack");
     }
     /*public void attDiaoYong()
     {
