@@ -156,8 +156,9 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "WASD \u2013 move  \r\n\nE \u2013 open boxes  \r\n\nClick \u2013 attack"
+    m_LineSpacing: 2
+  m_Text: "WASD \u2013 move  \r\nE \u2013 open boxes  \r\nLeft click \u2013 attack\nRight
+    click - treat"
 --- !u!1 &1408608099685502142
 GameObject:
   m_ObjectHideFlags: 0
