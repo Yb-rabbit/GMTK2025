@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using QFramework;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -24,8 +25,11 @@ public class die : MonoBehaviour
         Debug.Log("123");
         GameManager.Instance.OnReloadGameEvent.Invoke();
         Scene currentScene = SceneManager.GetActiveScene();
-
+        ActionKit.ScreenTransition.FadeInOut().OnInFinish(() =>
+        {
+            SceneManager.LoadScene(currentScene.name);
+        }).Start(this);
         // ���¼��ص�ǰ����
-        SceneManager.LoadScene(currentScene.name);
+        //SceneManager.LoadScene(currentScene.name);
     }
 }
