@@ -39,9 +39,7 @@ namespace Yumihoshi.Managers
                     "leveltreasureconfiglist");
             _curLevelConfig = LevelTreasureList.ConfigList[0];
             for (int i = 0; i < LevelTreasureList.ConfigList.Count; i++)
-            {
                 _usedItemIds.Add(new List<string>());
-            }
         }
 
         protected override void OnDestroy()
@@ -70,7 +68,8 @@ namespace Yumihoshi.Managers
         /// <returns></returns>
         public string GetRandomLevelItemId(int levelIndex)
         {
-            if (_curLevelConfig.Config.Count == _usedItemIds.Count)
+            if (LevelTreasureList.ConfigList[levelIndex - 1].Config.Count ==
+                _usedItemIds.Count)
             {
                 Debug.LogWarning("当前关卡物品已全部使用，无法获取新的物品ID");
                 return "";
@@ -79,8 +78,12 @@ namespace Yumihoshi.Managers
             while (true)
             {
                 string id = LevelTreasureList.ConfigList[levelIndex - 1].Config[
-                    Random.Range(0, LevelTreasureList.ConfigList[levelIndex - 1].Config.Count)];
-                if (_usedItemIds[levelIndex - 1].Contains(id)) continue;
+                    Random.Range(0,
+                        LevelTreasureList.ConfigList[levelIndex - 1].Config
+                            .Count)];
+                if (_usedItemIds[levelIndex - 1].Contains(id) &&
+                    ItemManager.Instance.FindItemById(id).ItemType ==
+                    ItemCategory.Weapon) continue;
                 _usedItemIds[levelIndex - 1].Add(id);
                 return id;
             }

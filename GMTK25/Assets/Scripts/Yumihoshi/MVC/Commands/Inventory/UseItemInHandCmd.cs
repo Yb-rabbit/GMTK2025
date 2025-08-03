@@ -15,7 +15,7 @@ namespace Yumihoshi.MVC.Commands.Inventory
     public class UseItemInHandCmd : AbstractCommand
     {
         private InventoryModel _model;
-        
+
         protected override void OnExecute()
         {
             _model = this.GetModel<InventoryModel>();
@@ -25,13 +25,14 @@ namespace Yumihoshi.MVC.Commands.Inventory
                 _model.ItemInHand.Value = null;
                 this.SendEvent(new ItemInHandChangedEvent
                 {
-                    newItem = null,
+                    newItem = null
                 });
                 return;
             }
+
             this.SendEvent(new ItemInHandChangedEvent
             {
-                newItem = _model.ItemInHand.Value,
+                newItem = _model.ItemInHand.Value
             });
         }
     }
