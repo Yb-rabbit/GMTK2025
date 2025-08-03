@@ -27,8 +27,8 @@ public class island : MonoBehaviour
 
                 // ÒÆ¶¯ÎïÌå
                 islan.transform.position += direction * movespeed * Time.deltaTime;
-                float distance1 = Vector3.Distance(islan.transform.position, UP.transform.position);
-                if (distance1 > 1f)
+                float distance1 = Vector3.Distance(islan.transform.position, Down.transform.position);
+                if (distance1 < 1f)
                 {
                     Destroy(gameObject);
                 }

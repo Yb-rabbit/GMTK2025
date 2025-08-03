@@ -1134,7 +1134,8 @@ MonoBehaviour:
   - {fileID: 5563468880253204069}
   - {fileID: 325185707250059051}
   - {fileID: 977809818858115193}
-  OnlyTakeOne: 1
+  - {fileID: 1321333816414977013}
+  OnlyTakeOne: 0
 --- !u!1 &8976921568924110541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +1595,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 160d0004f78a2e54ab9e555c4ceb97d1, type: 3}
+--- !u!1 &1321333816414977013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7331777013339482370, guid: 160d0004f78a2e54ab9e555c4ceb97d1, type: 3}
+  m_PrefabInstance: {fileID: 8640690539036496631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1809746345340199247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7995126245120095160, guid: 160d0004f78a2e54ab9e555c4ceb97d1, type: 3}

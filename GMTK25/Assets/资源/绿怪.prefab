@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movespeed: 3.2
-  stopDis: 0.05
+  stopDis: 1
   sp1: {fileID: 3213305420593595053}
   sp2: {fileID: 1044114149586863079}
 --- !u!114 &2711136432784575584

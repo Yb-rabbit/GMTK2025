@@ -1762,7 +1762,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &427498703
 RectTransform:
@@ -7319,14 +7319,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8679245, g: 0.5327753, b: 0.28248486, a: 1}
+  m_Color: {r: 0.94699997, g: 0.9281542, b: 0.9140199, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5812a75d96a102a4e8b555c72d4fc907, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b44a67cdc52f31443aeea04c1dd3920a, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10245,6 +10245,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: islandBlue
       objectReference: {fileID: 0}
+    - target: {fileID: 5678931111118664907, guid: efeae93d7d55e224780e23aea9c61c07, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10261,6 +10265,10 @@ PrefabInstance:
     - target: {fileID: 538541793684291210, guid: 54e33fdd2bf71e442ac1e88e728b313d, type: 3}
       propertyPath: m_Name
       value: islandRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 538541793684291210, guid: 54e33fdd2bf71e442ac1e88e728b313d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5539901668640398920, guid: 54e33fdd2bf71e442ac1e88e728b313d, type: 3}
       propertyPath: m_LocalPosition.x
