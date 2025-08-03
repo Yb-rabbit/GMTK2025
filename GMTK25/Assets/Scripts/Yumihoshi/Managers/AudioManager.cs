@@ -9,6 +9,7 @@
 using System.Collections.Generic;
 using QFramework;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Yumihoshi.Managers
 {
@@ -21,6 +22,16 @@ namespace Yumihoshi.Managers
         {
             _bgmClips.Add(_resLoader.LoadSync<AudioClip>("bgm1fi"));
             PlayLevelMusic();
+            SceneManager.sceneLoaded += (arg0, mode) =>
+            {
+                if (arg0.name == "MenuScene")
+                {
+                    AudioKit.StopMusic();
+                    return;
+                }
+
+                PlayLevelMusic();
+            };
         }
 
         /// <summary>

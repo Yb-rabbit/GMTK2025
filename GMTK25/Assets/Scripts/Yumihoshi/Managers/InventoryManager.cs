@@ -47,11 +47,13 @@ namespace Yumihoshi.Managers
         {
             // _model.Weapon.Value.currentStackCount = 0;
             // _model.Weapon.Value = null;
-            _model.ItemInHand.Value.currentStackCount = 0;
+            if (_model.ItemInHand.Value != null)
+                _model.ItemInHand.Value.currentStackCount = 0;
             _model.ItemInHand.Value = null;
             for (int i = 0; i < _model.SpareItems.Count; i++)
             {
-                _model.SpareItems[i].currentStackCount = 0;
+                if (_model.SpareItems[i] != null)
+                    _model.SpareItems[i].currentStackCount = 0;
                 _model.SpareItems[i] = null;
             }
         }
