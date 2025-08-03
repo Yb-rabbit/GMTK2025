@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 1978793774
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d457ded62044df091cb6ea296729f627
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 94e8937f705bea53c79b3d86dd768277
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: d457ded62044df091cb6ea296729f627
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: e65c2952013942898bbe72fc28324b1a, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/SO/Item/PassiveEquipDataList.asset
+Dependencies: []

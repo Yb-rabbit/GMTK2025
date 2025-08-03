@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 749061823
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: consumabledatalist_asset
+      Dependencies: {}
+    Info_1:
+      Name: passiveequipdatalist_asset
+      Dependencies: {}
+    Info_2:
+      Name: specialdatalist_asset
+      Dependencies: {}
+    Info_3:
+      Name: weapondatalist_asset
+      Dependencies: {}
+    Info_4:
+      Name: leveltreasureconfiglist_asset
+      Dependencies:
+        Dependency_0: 1levelconfig_asset
+        Dependency_1: 2levelconfig_asset
+    Info_5:
+      Name: 1levelconfig_asset
+      Dependencies: {}
+    Info_6:
+      Name: 2levelconfig_asset
+      Dependencies: {}
+    Info_7:
+      Name: inventoryconfig_asset
+      Dependencies: {}
+    Info_8:
+      Name: bgm1fi_ogg
+      Dependencies: {}

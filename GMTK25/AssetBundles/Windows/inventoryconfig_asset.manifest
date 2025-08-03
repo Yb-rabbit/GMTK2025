@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 1702128445
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c4918d958afe67f63ca8adf614aaa928
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f170b4ed63d7fac30d40c935fc1aff27
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: c4918d958afe67f63ca8adf614aaa928
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 61188eae9aad454a827332f658fd8e9e, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/SO/Inventory/InventoryConfig.asset
+Dependencies: []

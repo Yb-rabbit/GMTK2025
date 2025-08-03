@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 4231054156
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7dd6682bd2394e3cb81bbc7eba18a9c8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 39b8fa06c5ec58b9811076025384d9d7
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 7dd6682bd2394e3cb81bbc7eba18a9c8
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: c2ba6f1a922b4b45a6afa2abc5321964, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/SO/Item/SpecialDataList.asset
+Dependencies: []

@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 199203352
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5d1a5a2749ee00abae52128a1e9f4a8c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f61cba1b3f469cecfce4b5a0cdee2d33
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 5d1a5a2749ee00abae52128a1e9f4a8c
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 4a9f677b1a494d17978b80d9c93fd119, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/SO/Level/2LevelConfig.asset
+Dependencies: []

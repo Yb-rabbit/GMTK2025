@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 160348759
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1101a90c51077b47dc88de788dcdb7ab
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e83fe22e68317fb40216d04503895301
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 1101a90c51077b47dc88de788dcdb7ab
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: fbb899af8497422bae6dac248994394a, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: Yumihoshi.SO.Item.Weapon.WeaponData
+Assets:
+- Assets/Resources/SO/Item/WeaponDataList.asset
+Dependencies: []

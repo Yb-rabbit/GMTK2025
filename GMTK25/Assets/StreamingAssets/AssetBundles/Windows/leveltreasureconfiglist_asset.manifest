@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 2539832750
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c47eae7c9e3c1e3a4b43dfe4be17047f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f2ee26dadbd16b4abce84044d02fd16
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: c47eae7c9e3c1e3a4b43dfe4be17047f
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: a29b797451094553ab146d7d605c4e73, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4a9f677b1a494d17978b80d9c93fd119, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/SO/Level/LevelTreasureConfigList.asset
+Dependencies:
+- D:/Projects/UnityProjects/GMTK2025/GMTK25/AssetBundles/Windows/1levelconfig_asset
+- D:/Projects/UnityProjects/GMTK2025/GMTK25/AssetBundles/Windows/2levelconfig_asset

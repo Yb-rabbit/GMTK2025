@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 2159183246
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7432f083a3e7bad236f233497a558675
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bcdfcd615e47c82597a33665d498fc42
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 7432f083a3e7bad236f233497a558675
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 29aeffd81b324248bc1d51e08c138968, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: Yumihoshi.SO.Item.Consumable.ConsumableData
+Assets:
+- Assets/Resources/SO/Item/ConsumableDataList.asset
+Dependencies: []
