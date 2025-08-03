@@ -52,6 +52,7 @@ public class enemyMove : MonoBehaviour
                 }
                 else
                 {
+                    att.StartAtt();
                    // att.attDiaoYong();
                 }
             }

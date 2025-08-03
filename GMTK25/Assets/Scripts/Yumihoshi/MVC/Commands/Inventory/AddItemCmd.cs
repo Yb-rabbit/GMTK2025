@@ -22,6 +22,8 @@ namespace Yumihoshi.MVC.Commands.Inventory
         public AddItemCmd(BaseItemData data)
         {
             _itemData = data;
+            if (_itemData.currentStackCount == 0)
+                _itemData.AddStack();
         }
 
         protected override void OnExecute()
@@ -39,6 +41,12 @@ namespace Yumihoshi.MVC.Commands.Inventory
             // 若手持道具栏不为空，添加到备用道具栏
             else
             {
+                if (_model.ItemInHand.Value.itemId == _itemData.itemId)
+                {
+                    _model.ItemInHand.Value.AddStack(
+                        _itemData.currentStackCount);
+                    return;
+                }
                 var existSpare = false;
                 var spareIndex = 0;
 
