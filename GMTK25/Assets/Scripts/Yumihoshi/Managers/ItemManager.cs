@@ -6,6 +6,7 @@
 // @description:
 // *****************************************************************************
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using QFramework;
@@ -54,6 +55,11 @@ namespace Yumihoshi.Managers
             InitModels();
         }
 
+        private void Start()
+        {
+            GameManager.Instance.OnReloadGameEvent.AddListener(Reset);
+        }
+
         protected override void OnDestroy()
         {
             base.OnDestroy();
@@ -61,6 +67,51 @@ namespace Yumihoshi.Managers
             if (_resLoader == null) return;
             _resLoader.Recycle2Cache();
             _resLoader = null;
+        }
+
+        public void Reset()
+        {
+            foreach (ScriptableObject itemSo in ItemSoDict.Values)
+            {
+                switch (itemSo)
+                {
+                    // 如果是武器
+                    case WeaponSo weaponSo:
+                    {
+                        foreach (WeaponData data in
+                                 weaponSo.WeaponDataList)
+                            data.currentStackCount = 0;
+
+                        break;
+                    }
+                    // 如果是被动装备
+                    case PassiveEquipSo passiveEquipSo:
+                    {
+                        foreach (PassiveEquipData data in
+                                 passiveEquipSo.PassiveEquipDataList)
+                            data.currentStackCount = 0;
+
+                        break;
+                    }
+                    // 如果是消耗品
+                    case ConsumableSo consumableSo:
+                    {
+                        foreach (ConsumableData data in
+                                 consumableSo.ConsumableDataList)
+                            data.currentStackCount = 0;
+
+                        break;
+                    }
+                    // 如果是特殊物品
+                    case SpecialSo specialSo:
+                    {
+                        foreach (SpecialData data in
+                                 specialSo.SpecialDataList)
+                            data.currentStackCount = 0;
+                        break;
+                    }
+                }
+            }
         }
 
         /// <summary>
