@@ -23,8 +23,13 @@ public class hp : MonoBehaviour
     void Update()
     {
         Debug.Log(PingZhang);
-        if(transform.position.y<-20)
-            SceneManager.LoadScene(0);
+        if (transform.position.y < -20)
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+
+            // 重新加载当前场景
+            SceneManager.LoadScene(currentScene.name);
+        }
         if (HP < 0)
         {
             anim.SetBool("die", true);

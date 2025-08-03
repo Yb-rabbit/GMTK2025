@@ -7,10 +7,11 @@ public class island : MonoBehaviour
     public GameObject UP, Down, islan;
     int i;//为0时不动，1向下，2向上
     public float movespeed;
+    public float time;
     // Start is called before the first frame update
     void Start()
     {
-        
+        time = 50 / movespeed;
     }
 
     // Update is called once per frame

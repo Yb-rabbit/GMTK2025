@@ -6,6 +6,7 @@ public class EneAnimAtt : MonoBehaviour
 {
     eneAtt att;
     public GameObject father;
+    bool only = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,12 @@ public class EneAnimAtt : MonoBehaviour
     }
     public void Att()
     {
-        att.Attack();
+        if (only)
+        {
+            only = false;
+            att.Attack();
+        }
+       
     }
     public void die()
     {

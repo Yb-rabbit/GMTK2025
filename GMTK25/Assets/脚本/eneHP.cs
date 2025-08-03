@@ -16,7 +16,7 @@ public class eneHP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hp<=0)
+        if(hp<=0||!youxikongzhi.CanStart)
         {
             anim1.SetBool("die", true);
             anim2.SetBool("die", true);

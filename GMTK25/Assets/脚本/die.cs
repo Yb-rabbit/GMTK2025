@@ -18,6 +18,9 @@ public class die : MonoBehaviour
     }
     public void died()
     {
-        SceneManager.LoadScene(3);
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        // 重新加载当前场景
+        SceneManager.LoadScene(currentScene.name);
     }
 }
