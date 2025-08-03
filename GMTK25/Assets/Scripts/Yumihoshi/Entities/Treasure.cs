@@ -7,6 +7,7 @@
 // *****************************************************************************
 
 using QFramework;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Yumihoshi.Managers;
 using Yumihoshi.MVC.Apps;
@@ -17,6 +18,14 @@ namespace Yumihoshi.Entities
 {
     public class Treasure : MonoBehaviour, IController
     {
+        public int LevelIndex
+        {
+            get => levelIndex;
+            set => levelIndex = value;
+        }
+        
+        [LabelText("物品库设置（关卡数量）")] [SerializeField] private int levelIndex;
+        
         private static readonly int OpenID = Animator.StringToHash("Open");
         private Animator _animator;
         private BaseItemData _itemData;
@@ -29,7 +38,7 @@ namespace Yumihoshi.Entities
 
         private void Start()
         {
-            _itemId = LevelManager.Instance.GetRandomCurLevelItemId();
+            _itemId = LevelManager.Instance.GetRandomLevelItemId(levelIndex);
             _itemData = ItemManager.Instance.FindItemById(_itemId);
         }
 

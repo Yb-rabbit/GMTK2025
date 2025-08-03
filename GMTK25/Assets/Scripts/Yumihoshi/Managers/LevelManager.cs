@@ -15,7 +15,7 @@ namespace Yumihoshi.Managers
 {
     public class LevelManager : HoshiVerseFramework.Base.Singleton<LevelManager>
     {
-        private readonly List<string> _usedItemIds = new();
+        private readonly List<List<string>> _usedItemIds = new();
         private LevelTreasureConfig _curLevelConfig;
 
         private ResLoader _resLoader = ResLoader.Allocate();
@@ -38,6 +38,10 @@ namespace Yumihoshi.Managers
                 _resLoader.LoadSync<LevelTreasureConfigList>(
                     "leveltreasureconfiglist");
             _curLevelConfig = LevelTreasureList.ConfigList[0];
+            for (int i = 0; i < LevelTreasureList.ConfigList.Count; i++)
+            {
+                _usedItemIds.Add(new List<string>());
+            }
         }
 
         protected override void OnDestroy()
@@ -64,7 +68,7 @@ namespace Yumihoshi.Managers
         /// 获取当前关卡的随机物品ID
         /// </summary>
         /// <returns></returns>
-        public string GetRandomCurLevelItemId()
+        public string GetRandomLevelItemId(int levelIndex)
         {
             if (_curLevelConfig.Config.Count == _usedItemIds.Count)
             {
@@ -74,10 +78,10 @@ namespace Yumihoshi.Managers
 
             while (true)
             {
-                string id = _curLevelConfig.Config[
-                    Random.Range(0, _curLevelConfig.Config.Count)];
-                if (_usedItemIds.Contains(id)) continue;
-                _usedItemIds.Add(id);
+                string id = LevelTreasureList.ConfigList[levelIndex - 1].Config[
+                    Random.Range(0, LevelTreasureList.ConfigList[levelIndex - 1].Config.Count)];
+                if (_usedItemIds[levelIndex - 1].Contains(id)) continue;
+                _usedItemIds[levelIndex - 1].Add(id);
                 return id;
             }
         }
