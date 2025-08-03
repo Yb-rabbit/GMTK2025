@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Yumihoshi.Managers;
+using Yumihoshi.MVC.Models.Inventory;
 
 public class hp : MonoBehaviour
 {
@@ -15,15 +16,28 @@ public class hp : MonoBehaviour
     public Animator anim,anim1;
     public float PingZhang;
     float ShenYu;
+    string id;
+    float max;
+    int curStack;
+    float FreshTime;//持续回血时间
     // Start is called before the first frame update
     void Start()
     {
         time = wudiTim;
+        max = HP;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (HP > max)
+            HP = max;
+        Debug.Log(HP);
+        if(FreshTime > 0)
+        {
+            FreshTime-=Time.deltaTime;
+            HP += 5 * Time.deltaTime;
+        }
         Debug.Log(PingZhang);
         if (transform.position.y < -20)
         {
@@ -41,7 +55,31 @@ public class hp : MonoBehaviour
         {
             if(Input.GetMouseButtonDown(1))
             {
-               // InventoryManager.Instance.SendCommand
+                var model=InventoryManager.Instance.GetModel<InventoryModel>();
+                if (model.ItemInHand.Value != null)
+                {
+                    id = model.ItemInHand.Value.itemId;
+                    curStack = model.ItemInHand.Value.currentStackCount;
+                    Debug.Log("id=" + id);
+                    Debug.Log("cur=" + curStack);
+                }
+                if(curStack>-1)
+                {
+                    switch (id)
+                    {
+                        case "301":
+                            HP += 50;
+                            break;
+                        case "302":
+                            FreshTime = 12f;
+                            break;
+
+                    }
+                    model.ItemInHand.Value.currentStackCount--;
+                }
+                
+
+                // InventoryManager.Instance.SendCommand
             }
         }
         if (wudi)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class youxikongzhi : MonoBehaviour
@@ -47,7 +48,7 @@ public class youxikongzhi : MonoBehaviour
                
                 if (island[i]==null)
                 {
-                    Debug.Log("Í¨¹ý");
+                    SceneManager.LoadScene(0);
                 }
                 else
                 {
