@@ -8,6 +8,7 @@ using Yumihoshi.Managers;
 using Yumihoshi.MVC.Models.Inventory;
 using UnityEngine.Rendering;
 using UnityEngine.Events;
+using Yumihoshi.MVC.Commands.Inventory;
 
 public class hp : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class hp : MonoBehaviour
     {
         time = wudiTim;
         max = HP.Value;
+        GameManager.Instance.OnReloadGameEvent.Invoke();
     }
 
     // Update is called once per frame
@@ -62,6 +64,7 @@ public class hp : MonoBehaviour
         }
         if (HP.Value < 0)
         {
+            OnReload.Invoke();
             anim.SetBool("die", true);
             anim1.SetBool("die", true);
         }
@@ -89,7 +92,8 @@ public class hp : MonoBehaviour
                             break;
 
                     }
-                    model.ItemInHand.Value.DecreaseStack();
+                    // model.ItemInHand.Value.DecreaseStack();
+                    InventoryManager.Instance.SendCommand(new UseItemInHandCmd());
                 }
                 
 
@@ -121,8 +125,12 @@ public class hp : MonoBehaviour
                 HP.Value += ShenYu;
                 wudi = true;
                 time = wudiTim;
-                anim.Play("hurt");
-                anim1.Play("hurt");
+                if(HP.Value>0)
+                {
+                    anim.Play("hurt");
+                    anim1.Play("hurt");
+                }
+               
                 gameObject.tag = "Untagged";
             }
             
