@@ -73,13 +73,17 @@ public class hp : MonoBehaviour
             if(Input.GetMouseButtonDown(1))
             {
                 var model=InventoryManager.Instance.GetModel<InventoryModel>();
-                if (model.ItemInHand.Value != null)
+
+                if (model.ItemInHand.Value == null)
                 {
-                    id = model.ItemInHand.Value.itemId;
-                    curStack = model.ItemInHand.Value.currentStackCount;
-                    Debug.Log("id=" + id);
-                    Debug.Log("cur=" + curStack);
+                    curStack = 0;
+                    return;
                 }
+                id = model.ItemInHand.Value.itemId;
+                curStack = model.ItemInHand.Value.currentStackCount;
+                Debug.Log("id=" + id); 
+                Debug.Log("cur=" + curStack);
+                    
                 if(curStack>0)
                 {
                     switch (id)

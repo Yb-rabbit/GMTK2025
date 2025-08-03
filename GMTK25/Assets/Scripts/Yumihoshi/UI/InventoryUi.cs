@@ -47,9 +47,10 @@ namespace Yumihoshi.UI
                 .Register(WeaponChanged)
                 .UnRegisterWhenGameObjectDestroyed(gameObject);
             InventoryManager.Instance.RegisterEvent<ItemInHandChangedEvent>(
-                HandleItemInHandChanged);
+                    HandleItemInHandChanged)
+                .UnRegisterWhenGameObjectDestroyed(gameObject);
             InventoryManager.Instance.RegisterEvent<SpareItemChangedEvent>(
-                SpareItemChanged);
+                SpareItemChanged).UnRegisterWhenGameObjectDestroyed(gameObject);
         }
 
         private void SpareItemChanged(SpareItemChangedEvent e)
