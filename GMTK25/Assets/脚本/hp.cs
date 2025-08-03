@@ -25,7 +25,7 @@ public class hp : MonoBehaviour
     string id;
     float max;
     int curStack;
-    float FreshTime;//³ÖÐø»ØÑªÊ±¼ä
+    float FreshTime;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÑªÊ±ï¿½ï¿½
     public UnityEvent OnReload { get; private set; } =new();
    // float FreshTime;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÑªÊ±ï¿½ï¿½
 
@@ -39,7 +39,7 @@ public class hp : MonoBehaviour
     {
         time = wudiTim;
         max = HP.Value;
-        GameManager.Instance.OnReloadGameEvent.Invoke();
+        //GameManager.Instance.OnReloadGameEvent.Invoke();
     }
 
     // Update is called once per frame

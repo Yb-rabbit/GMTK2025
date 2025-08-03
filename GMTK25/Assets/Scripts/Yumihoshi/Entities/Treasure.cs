@@ -18,6 +18,9 @@ namespace Yumihoshi.Entities
 {
     public class Treasure : MonoBehaviour, IController
     {
+        [LabelText("是否为初始宝箱")] [SerializeField]
+        private bool isInitialTreasure;
+
         public int LevelIndex
         {
             get => levelIndex;
@@ -39,7 +42,9 @@ namespace Yumihoshi.Entities
 
         private void Start()
         {
-            _itemId = LevelManager.Instance.GetRandomLevelItemId(levelIndex);
+            _itemId =
+                LevelManager.Instance.GetRandomLevelItemId(levelIndex,
+                    isInitialTreasure);
             _itemData = ItemManager.Instance.FindItemById(_itemId);
         }
 

@@ -10,6 +10,7 @@ using System;
 using QFramework;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Yumihoshi.Entities;
 using Yumihoshi.MVC.Commands.Inventory;
 using Yumihoshi.SO.Item;
@@ -35,6 +36,14 @@ namespace Yumihoshi.Managers
             _treasureItemInfoPanel =
                 GameObject.FindWithTag("TreasureItemInfoPanel")
                     .GetComponent<ItemPickPanelUi>();
+            SceneManager.sceneLoaded += (arg0, mode) =>
+            {
+                if (arg0.name != "关卡") return;
+                _treasureItemInfoPanel =
+                    GameObject.FindWithTag("TreasureItemInfoPanel")
+                        .GetComponent<ItemPickPanelUi>();
+                _treasureItemInfoPanel.gameObject.SetActive(false);
+            };
             _treasureItemInfoPanel.gameObject.SetActive(false);
         }
 

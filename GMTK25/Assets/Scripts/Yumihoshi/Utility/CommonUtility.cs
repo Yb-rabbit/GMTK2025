@@ -6,6 +6,7 @@
 // @description: 共用工具类
 // *****************************************************************************
 
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Yumihoshi.Utility
@@ -30,6 +31,7 @@ namespace Yumihoshi.Utility
         public static void LoadManagerScene()
         {
             if (IsManagerSceneLoaded()) return;
+            Debug.Log("加载管理器场景");
             SceneManager.LoadScene("ManagerScene", LoadSceneMode.Additive);
         }
 
