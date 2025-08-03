@@ -21,7 +21,7 @@ namespace Yumihoshi.UI
         private void Start()
         {
             _healthBar = GetComponent<Slider>();
-            _hp = transform.parent.parent.GetComponent<hp>();
+            _hp = GameObject.Find("cat").GetComponent<hp>();
             _hp.HP.Register(HandleHpChanged)
                 .UnRegisterWhenGameObjectDestroyed(gameObject);
         }
