@@ -8239,8 +8239,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u7269\u54C1\u680FUI"
       objectReference: {fileID: 0}
-    - target: {fileID: 7587999178518765688, guid: 72c602d7e54bfe5449d4c756164c7c0f, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 8269353295088822798, guid: 72c602d7e54bfe5449d4c756164c7c0f, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269353295088822798, guid: 72c602d7e54bfe5449d4c756164c7c0f, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e7155c59e56f04641848b547dda167d8, type: 2}
+    - target: {fileID: 8269353295088822798, guid: 72c602d7e54bfe5449d4c756164c7c0f, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269353295088822798, guid: 72c602d7e54bfe5449d4c756164c7c0f, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269353295088822798, guid: 72c602d7e54bfe5449d4c756164c7c0f, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269353295088822798, guid: 72c602d7e54bfe5449d4c756164c7c0f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269353295088822798, guid: 72c602d7e54bfe5449d4c756164c7c0f, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9204604690149657253, guid: 72c602d7e54bfe5449d4c756164c7c0f, type: 3}
