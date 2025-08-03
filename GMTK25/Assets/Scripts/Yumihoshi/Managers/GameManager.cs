@@ -7,10 +7,12 @@
 // *****************************************************************************
 
 using HoshiVerseFramework.Base;
+using UnityEngine.Events;
 
 namespace Yumihoshi.Managers
 {
     public class GameManager : Singleton<GameManager>
     {
+        public UnityEvent OnReloadGameEvent { get; private set; } = new();
     }
 }

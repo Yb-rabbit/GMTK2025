@@ -6,10 +6,12 @@
 // @description:
 // *****************************************************************************
 
+using System;
 using System.Collections.Generic;
 using QFramework;
 using UnityEngine;
 using Yumihoshi.SO.Level;
+using Random = UnityEngine.Random;
 
 namespace Yumihoshi.Managers
 {
@@ -51,9 +53,18 @@ namespace Yumihoshi.Managers
             _resLoader = null;
         }
 
+        public void Reset()
+        {
+            foreach (List<string> usedItemId in _usedItemIds)
+            {
+                usedItemId.Clear();
+            }
+        }
+
         /// <summary>
         /// 下一关
         /// </summary>
+        [Obsolete]
         public void LoadNextLevel()
         {
             CurrentLevelIndex = Mathf.Clamp(CurrentLevelIndex + 1, 0,
@@ -69,7 +80,7 @@ namespace Yumihoshi.Managers
         public string GetRandomLevelItemId(int levelIndex)
         {
             if (LevelTreasureList.ConfigList[levelIndex - 1].Config.Count ==
-                _usedItemIds.Count)
+                _usedItemIds[levelIndex - 1].Count)
             {
                 Debug.LogWarning("当前关卡物品已全部使用，无法获取新的物品ID");
                 return "";
