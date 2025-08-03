@@ -73,7 +73,7 @@ public class hp : MonoBehaviour
                     Debug.Log("id=" + id);
                     Debug.Log("cur=" + curStack);
                 }
-                if(curStack>-1)
+                if(curStack>0)
                 {
                     switch (id)
                     {
@@ -85,7 +85,7 @@ public class hp : MonoBehaviour
                             break;
 
                     }
-                    model.ItemInHand.Value.currentStackCount--;
+                    model.ItemInHand.Value.DecreaseStack();
                 }
                 
 

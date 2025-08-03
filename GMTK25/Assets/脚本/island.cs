@@ -5,9 +5,10 @@ using UnityEngine;
 public class island : MonoBehaviour
 {
     public GameObject UP, Down, islan;
-    int i;//为0时不动，1向下，2向上
+    int i=2;//为0时不动，1向下，2向上
     public float movespeed;
     public float time;
+    public GameObject StartPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,12 @@ public class island : MonoBehaviour
 
                 // 移动物体
                 islan.transform.position += direction * movespeed * Time.deltaTime;
-                break;
+                float distance1 = Vector3.Distance(islan.transform.position, UP.transform.position);
+                if (distance1 > 1f)
+                {
+                    Destroy(gameObject);
+                }
+                    break;
             case 2:
                 float distance = Vector3.Distance(islan.transform.position, UP.transform.position);
                 if (distance > 1f)
