@@ -26,10 +26,12 @@ namespace Yumihoshi.UI
         private Image weaponImg;
 
         [LabelText("手持道具UI")] [SerializeField] private Image itemInHandImg;
+
         [LabelText("手持道具堆叠文本")] [SerializeField]
         private TextMeshProUGUI itemInHandStackTmp;
 
         [LabelText("备用道具")] [SerializeField] private List<Image> spareItemImgs;
+
         [LabelText("备用道具堆叠文本")] [SerializeField]
         private List<TextMeshProUGUI> spareItemStackTmps;
 
@@ -44,7 +46,8 @@ namespace Yumihoshi.UI
             model.Weapon
                 .Register(WeaponChanged)
                 .UnRegisterWhenGameObjectDestroyed(gameObject);
-            InventoryManager.Instance.RegisterEvent<ItemInHandChangedEvent>(HandleItemInHandChanged);
+            InventoryManager.Instance.RegisterEvent<ItemInHandChangedEvent>(
+                HandleItemInHandChanged);
             InventoryManager.Instance.RegisterEvent<SpareItemChangedEvent>(
                 SpareItemChanged);
         }
@@ -52,7 +55,6 @@ namespace Yumihoshi.UI
         private void SpareItemChanged(SpareItemChangedEvent e)
         {
             for (var i = 0; i < e.newSpareItems.Count; i++)
-            {
                 if (e.newSpareItems[i] != null)
                 {
                     SetSpareItemImg(i, e.newSpareItems[i].itemIcon);
@@ -71,7 +73,6 @@ namespace Yumihoshi.UI
                 {
                     spareItemStackTmps[i].gameObject.SetActive(false);
                 }
-            }
         }
 
         private void WeaponChanged(WeaponData weaponData)

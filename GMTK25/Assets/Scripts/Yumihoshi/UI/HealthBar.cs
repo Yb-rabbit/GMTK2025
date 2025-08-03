@@ -6,7 +6,6 @@
 // @description:
 // *****************************************************************************
 
-using System;
 using QFramework;
 using UnityEngine;
 using UnityEngine.UI;

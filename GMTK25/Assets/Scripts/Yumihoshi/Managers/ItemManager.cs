@@ -6,7 +6,6 @@
 // @description:
 // *****************************************************************************
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using QFramework;
@@ -72,7 +71,6 @@ namespace Yumihoshi.Managers
         public void Reset()
         {
             foreach (ScriptableObject itemSo in ItemSoDict.Values)
-            {
                 switch (itemSo)
                 {
                     // 如果是武器
@@ -81,7 +79,6 @@ namespace Yumihoshi.Managers
                         // foreach (WeaponData data in
                         //          weaponSo.WeaponDataList)
                         //     data.currentStackCount = 0;
-
                         break;
                     }
                     // 如果是被动装备
@@ -111,7 +108,6 @@ namespace Yumihoshi.Managers
                         break;
                     }
                 }
-            }
         }
 
         /// <summary>

@@ -10,7 +10,6 @@ using QFramework;
 using Yumihoshi.MVC.Apps;
 using Yumihoshi.MVC.Models.Inventory;
 using Yumihoshi.SO.Inventory;
-using Yumihoshi.SO.Item;
 
 namespace Yumihoshi.Managers
 {
@@ -30,7 +29,7 @@ namespace Yumihoshi.Managers
                 _resLoader.LoadSync<InventoryConfig>("inventoryconfig");
             _model = this.GetModel<InventoryModel>();
         }
-        
+
         private void Start()
         {
             GameManager.Instance.OnReloadGameEvent.AddListener(Reset);

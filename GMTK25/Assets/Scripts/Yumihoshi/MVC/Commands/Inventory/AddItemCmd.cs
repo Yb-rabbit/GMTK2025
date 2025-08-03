@@ -51,6 +51,7 @@ namespace Yumihoshi.MVC.Commands.Inventory
                     });
                     return;
                 }
+
                 var existSpare = false;
                 var spareIndex = 0;
 
