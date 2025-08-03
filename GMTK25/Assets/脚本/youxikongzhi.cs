@@ -7,8 +7,11 @@ using UnityEngine.UI;
 public class youxikongzhi : MonoBehaviour
 {
     public static bool CanStart;
-    public island[] island;
-    public GameObject []StartPoint;
+   // public island[] island;
+    public GameObject[] island;
+    island isa;
+    public GameObject startIsland;
+    //public GameObject []StartPoint;
     int i = 0;
     public Collider player, center,center1;
     float time;
@@ -16,11 +19,13 @@ public class youxikongzhi : MonoBehaviour
     public float jishi;
     public Canvas canvas;
     public Image tiao;
+    public GameObject islandPoint;//产岛点
     // Start is called before the first frame update
     void Start()
     {
         CanStart = false;
         time = timer;
+        isa=startIsland.GetComponent<island>();
         Physics.IgnoreCollision(player, center, true);
         Physics.IgnoreCollision(player, center1, true);
     }
@@ -36,11 +41,13 @@ public class youxikongzhi : MonoBehaviour
             {
                 Physics.IgnoreCollision(player, center1, true);//玩家可以移动
             }
+            i = Random.Range(0, 3);
             if (island[i] != null)
             {
-                if (time < island[i].time)
+                if (time < 50/7)
                 {
-                    island[i].TurnUp();
+                    GameObject newobj= Instantiate(island[i], islandPoint.transform.position, Quaternion.identity);
+                    isa=newobj.GetComponent<island>();
                 }
             }
             if(time<0)
@@ -65,14 +72,15 @@ public class youxikongzhi : MonoBehaviour
         {
             jishi += Time.deltaTime;
             if(jishi>25)
-                Destroy(StartPoint[i]);
-            if (StartPoint[i] == null)
+                Destroy(isa.StartPoint.gameObject);
+            if (isa.StartPoint == null)
             {
                 CanStart = true;
                 canvas.enabled = false;
                 Physics.IgnoreCollision(player, center, false);//玩家不可呆在内圈
                 Physics.IgnoreCollision(player, center1, false);
-                island[i].TurnDown();
+                if(isa!=null)
+                    isa.TurnDown();
                 i++;
             }
         }
