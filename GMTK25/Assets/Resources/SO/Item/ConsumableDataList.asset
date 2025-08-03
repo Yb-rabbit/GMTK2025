@@ -16,9 +16,10 @@ MonoBehaviour:
   - itemId: 301
     itemName: Blood-Red Potion
     itemDesc: Instantly adds 50 points of health
+    itemIcon: {fileID: 21300000, guid: 0cfd7f68e6ebf934abb9096e85f39503, type: 3}
+    itemBigIcon: {fileID: 21300000, guid: 0cfd7f68e6ebf934abb9096e85f39503, type: 3}
     currentStackCount: 0
     maxStackCount: 5
-    itemIcon: {fileID: 21300000, guid: 0cfd7f68e6ebf934abb9096e85f39503, type: 3}
     TotalHealAmount: 50
     IsSlowHeal: 0
     HealPerSecond: 0
@@ -26,9 +27,10 @@ MonoBehaviour:
   - itemId: 302
     itemName: Red-Green Potion
     itemDesc: Gradually restores 5 health points per second, lasting 12 seconds
+    itemIcon: {fileID: 21300000, guid: 0383970c2716fbc4fa3dab41fdbdbdd5, type: 3}
+    itemBigIcon: {fileID: 21300000, guid: 0383970c2716fbc4fa3dab41fdbdbdd5, type: 3}
     currentStackCount: 0
     maxStackCount: 5
-    itemIcon: {fileID: 21300000, guid: 0383970c2716fbc4fa3dab41fdbdbdd5, type: 3}
     TotalHealAmount: 0
     IsSlowHeal: 1
     HealPerSecond: 5
