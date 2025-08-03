@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using Yumihoshi.Managers;
 
 public class die : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +21,10 @@ public class die : MonoBehaviour
     }
     public void died()
     {
+        GameManager.Instance.OnReloadGameEvent.Invoke();
         Scene currentScene = SceneManager.GetActiveScene();
 
-        // ÖØÐÂ¼ÓÔØµ±Ç°³¡¾°
+        // ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Øµï¿½Ç°ï¿½ï¿½ï¿½ï¿½
         SceneManager.LoadScene(currentScene.name);
     }
 }

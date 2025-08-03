@@ -23,7 +23,7 @@ public class hp : MonoBehaviour
     string id;
     float max;
     int curStack;
-    float FreshTime;//³ÖÐø»ØÑªÊ±¼ä
+    float FreshTime;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÑªÊ±ï¿½ï¿½
 
     private void Awake()
     {
