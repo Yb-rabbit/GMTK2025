@@ -19,6 +19,7 @@ namespace Yumihoshi.MVC.Commands.Inventory
         protected override void OnExecute()
         {
             _model = this.GetModel<InventoryModel>();
+            if (_model.ItemInHand.Value == null) return;
             _model.ItemInHand.Value.DecreaseStack();
             if (_model.ItemInHand.Value.currentStackCount == 0)
             {
