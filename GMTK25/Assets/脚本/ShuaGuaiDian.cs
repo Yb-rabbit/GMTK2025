@@ -1,4 +1,4 @@
-using AmplifyShaderEditor;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +14,7 @@ public class ShuaGuaiDian : MonoBehaviour
     void Start()
     {
         timer = time;
-        // »ñÈ¡ËùÓÐ×ÓÎïÌåÉÏµÄA½Å±¾
+        // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½Aï¿½Å±ï¿½
         if (father)
         {
             allScripts = GetComponentsInChildren<ShuaGuaiDian>(true);
@@ -34,10 +34,10 @@ public class ShuaGuaiDian : MonoBehaviour
             if (timer < 0)
             {
                 timer = time;
-                // Ëæ»úÑ¡ÔñÒ»¸ö
+                // ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Ò»ï¿½ï¿½
                 ShuaGuaiDian randomScript = allScripts[Random.Range(0, allScripts.Length)];
 
-                // µ÷ÓÃº¯Êý
+                // ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½
                 randomScript.Invoke("GiveEnemy", 0f);
             }
         }
