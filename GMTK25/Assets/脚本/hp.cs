@@ -1,3 +1,4 @@
+using System;
 using QFramework;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +8,8 @@ using Yumihoshi.Managers;
 
 public class hp : MonoBehaviour
 {
-    public float HP = 5;
+    [SerializeField] private float _hp = 100f;
+    public BindableProperty<float> HP = new();
     bool wudi = false;
     public float wudiTim = 0.5f;
     float time;
@@ -15,6 +17,12 @@ public class hp : MonoBehaviour
     public Animator anim,anim1;
     public float PingZhang;
     float ShenYu;
+
+    private void Awake()
+    {
+        HP.Value = _hp;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,10 +37,10 @@ public class hp : MonoBehaviour
         {
             Scene currentScene = SceneManager.GetActiveScene();
 
-            // ÖØÐÂ¼ÓÔØµ±Ç°³¡¾°
+            // ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Øµï¿½Ç°ï¿½ï¿½ï¿½ï¿½
             SceneManager.LoadScene(currentScene.name);
         }
-        if (HP < 0)
+        if (HP.Value < 0)
         {
             anim.SetBool("die", true);
             anim1.SetBool("die", true);
@@ -55,7 +63,7 @@ public class hp : MonoBehaviour
             }
         }
     }
-    public void GetAtted(float shanghai)//ÊÜµ½ÉËº¦
+    public void GetAtted(float shanghai)//ï¿½Üµï¿½ï¿½Ëºï¿½
     {
         if (gameObject.tag =="Player")
         {
@@ -66,7 +74,7 @@ public class hp : MonoBehaviour
                 PingZhang = 0;
             if(ShenYu<0)
             {
-                HP += ShenYu;
+                HP.Value += ShenYu;
                 wudi = true;
                 time = wudiTim;
                 anim.Play("hurt");
