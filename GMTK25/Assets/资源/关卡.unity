@@ -610,6 +610,10 @@ PrefabInstance:
       propertyPath: levelIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8958631694210313785, guid: a4bb0ced308858b40b9e155a73b3b9db, type: 3}
+      propertyPath: isInitialTreasure
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4868,6 +4872,10 @@ PrefabInstance:
       propertyPath: levelIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1628517177063656132, guid: b9be815df675aaa46b71847ade844530, type: 3}
+      propertyPath: isInitialTreasure
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7052554890136328483, guid: b9be815df675aaa46b71847ade844530, type: 3}
       propertyPath: m_Name
       value: TreasureBlue
@@ -8665,6 +8673,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6277614435575466625, guid: beec09f8e655a354394e0df5d6f11e1e, type: 3}
       propertyPath: levelIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6277614435575466625, guid: beec09f8e655a354394e0df5d6f11e1e, type: 3}
+      propertyPath: isInitialTreasure
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6724162456854110785, guid: beec09f8e655a354394e0df5d6f11e1e, type: 3}
